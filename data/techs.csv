@@ -1,29 +1,29 @@
-id,name,credential,home_dept,competencies,employment,fte,shift_pref,weekend_group,holiday_group,seniority_rank,hire_date,pto_balance_hours,holiday_off_wishlist,constraints
-T01,Andre Brooks,MLT(ASCP),Hematology,Hematology:primary; Chemistry:competent,PT,0.6,Nights,A,1,6,2011-07-09,174,New Year's Day; Christmas Day,
-T02,Marcus Brooks,MLS(ASCP),Hematology,Hematology:primary; Chemistry:competent; Blood Bank:training,FT,0.9,Days,A,2,5,2009-12-01,178,Thanksgiving Day; Christmas Day,Prefers 3-on / 4-off pattern
-T03,Avery Shah,MLS(ASCP),Hematology,Hematology:primary; Blood Bank:training,FT,0.9,Nights,B,1,9,2013-03-21,130,Christmas Day; Thanksgiving Day,
-T04,Owen Thompson,MLT(ASCP),Hematology,Hematology:primary; Chemistry:competent; Blood Bank:training,FT,0.9,Rotating,A,2,8,2013-01-07,197,Christmas Day; New Year's Day,
-T05,Kenji Andersen,MLT(ASCP),Hematology,Hematology:primary,FT,0.9,Days,A,1,19,2017-12-01,109,Thanksgiving Day; Christmas Day,
-T06,Aisha Reyes,MLS(ASCP),Hematology,Hematology:primary,FT,0.9,Rotating,B,2,26,2020-08-13,98,New Year's Day; Thanksgiving Day,Carpools: pair with same-shift tech
-T07,Devon Dubois,MLS(ASCP)SBB,Hematology,Hematology:primary; Chemistry:competent,FT,0.9,Nights,B,1,24,2019-10-26,91,Thanksgiving Day; Independence Day,Prefers 3-on / 4-off pattern
-T08,Elena Clarke,MLS(ASCP),Chemistry,Chemistry:primary; Hematology:competent,FT,0.9,Days,A,2,7,2012-01-07,134,New Year's Day; Independence Day,
-T09,Owen Kowalski,MLS(ASCP),Chemistry,Chemistry:primary; Hematology:competent,FT,0.9,Days,A,1,18,2017-01-07,144,Thanksgiving Day; New Year's Day,Carpools: pair with same-shift tech
-T10,Marcus Cohen,MLS(ASCP),Chemistry,Chemistry:primary; Hematology:competent,FT,0.9,Days,A,2,11,2013-08-14,196,New Year's Day; Christmas Day,
-T11,Caleb Okafor,MLS(ASCP),Chemistry,Chemistry:primary,FT,0.9,Days,A,1,20,2018-03-21,90,Independence Day; Thanksgiving Day,
-T12,Owen Kim,MLS(ASCP),Chemistry,Chemistry:primary; Hematology:competent; Blood Bank:training,FT,0.9,Nights,A,2,17,2016-03-20,159,Independence Day; New Year's Day,
-T13,Imani Dubois,MLS(ASCP),Chemistry,Chemistry:primary; Hematology:competent; Blood Bank:competent,FT,0.9,Nights,A,1,16,2015-06-02,120,Thanksgiving Day; New Year's Day,
-T14,Priya Foster,MLS(ASCP),Chemistry,Chemistry:primary; Blood Bank:competent,FT,0.9,Days,A,2,4,2005-02-12,193,Independence Day; Thanksgiving Day,No nights before Monday (childcare)
-T15,Mei Kowalski,MLS(ASCP),Chemistry,Chemistry:primary; Hematology:training,PT,0.6,Nights,A,1,28,2022-08-14,47,Independence Day; New Year's Day,No Tuesday days (class schedule)
-T16,Hannah Mbeki,MLS(ASCP),Microbiology,Microbiology:primary,FT,0.9,Days,A,2,25,2020-01-07,136,Thanksgiving Day; Independence Day,Prefers 3-on / 4-off pattern; No nights before Monday (childcare)
-T17,Jordan Okafor,MLS(ASCP),Microbiology,Microbiology:primary,FT,0.9,Days,B,1,27,2021-04-26,113,Independence Day; Christmas Day,Prefers 3-on / 4-off pattern
-T18,Jordan Nguyen,MLS(ASCP),Microbiology,Microbiology:primary; Chemistry:training,PT,0.6,Days,A,2,14,2014-09-19,160,Thanksgiving Day; Independence Day,No nights before Monday (childcare); No Tuesday days (class schedule)
-T19,Marcus Haddad,MLS(ASCP),Microbiology,Microbiology:primary; Hematology:competent,FT,0.9,Days,A,1,1,2002-03-21,192,Christmas Day; New Year's Day,
-T20,Devon Larsen,MLS(ASCP),Microbiology,Microbiology:primary,FT,0.9,Days,B,2,12,2014-02-12,136,New Year's Day; Christmas Day,No Tuesday days (class schedule); Max 2 consecutive nights
-T21,Devon Yilmaz,MLS(ASCP),Microbiology,Microbiology:primary; Chemistry:competent,FT,0.9,Days,B,1,10,2013-04-26,128,Christmas Day; Independence Day,Every other Wednesday off (custody)
-T22,Samuel Silva,MLS(ASCP),Blood Bank,Blood Bank:primary,FT,0.9,Nights,A,2,22,2019-03-21,97,New Year's Day; Thanksgiving Day,
-T23,Mei Walsh,MLS(ASCP),Blood Bank,Blood Bank:primary; Hematology:competent; Chemistry:training,PT,0.6,Days,B,1,23,2019-07-09,86,Thanksgiving Day; New Year's Day,
-T24,Avery Becker,MLS(ASCP)SBB,Blood Bank,Blood Bank:primary; Hematology:competent,FT,0.9,Nights,A,2,21,2018-09-19,94,Thanksgiving Day; New Year's Day,Carpools: pair with same-shift tech
-T25,Lucas Kowalski,MLS(ASCP)SBB,Blood Bank,Blood Bank:primary; Hematology:training; Chemistry:competent,PT,0.6,Nights,A,1,15,2014-10-26,165,Christmas Day; New Year's Day,
-T26,Grace Ivanova,MLS(ASCP),Blood Bank,Blood Bank:primary,PT,0.6,Rotating,A,2,13,2014-08-14,142,Independence Day; Thanksgiving Day,
-T27,Nadia Larsen,MLS(ASCP),Float,Hematology:competent; Chemistry:primary; Microbiology:competent; Blood Bank:competent,PRN,0.0,Days,A,1,2,2003-12-02,168,Thanksgiving Day; Christmas Day,
-T28,Sofia Haddad,MLS(ASCP),Float,Hematology:competent; Chemistry:competent; Microbiology:primary; Blood Bank:competent,PRN,0.0,Days,A,2,3,2004-07-08,148,Thanksgiving Day; New Year's Day,
+id,name,credential,home_dept,competencies,employment,fte,shifts_per_week,shift_pref,weekend_group,holiday_group,seniority_rank,hire_date,pto_balance_hours,holiday_off_wishlist,constraints
+T01,Andre Brooks,MLT(ASCP),Hematology,Hematology:primary; Chemistry:competent,FT,1.0,5,Rotating,B,2,8,2011-07-08,140,Independence Day; Christmas Day,
+T02,Marcus Brooks,MLT(ASCP),Hematology,Hematology:primary; Chemistry:competent; Blood Bank:competent; Microbiology:training,FT,1.0,5,Nights,A,2,3,2002-06-01,197,New Year's Day; Thanksgiving Day,
+T03,Avery Shah,MLS(ASCP),Hematology,Hematology:primary; Blood Bank:competent,PT,0.6,3,Days,A,1,21,2022-01-06,86,Christmas Day; New Year's Day,
+T04,Owen Thompson,MLS(ASCP),Hematology,Hematology:primary; Chemistry:competent; Blood Bank:competent,FT,1.0,5,Nights,B,1,18,2020-05-31,115,Independence Day; New Year's Day,
+T05,Kenji Andersen,MLS(ASCP),Hematology,Hematology:primary; Chemistry:training,FT,1.0,5,Evenings,B,1,15,2018-04-25,101,Christmas Day; Thanksgiving Day,
+T06,Aisha Reyes,MLT(ASCP),Hematology,Hematology:primary; Chemistry:training,FT,1.0,5,Days,B,2,1,1999-08-13,127,Christmas Day; Thanksgiving Day,
+T07,Devon Dubois,MLS(ASCP),Hematology,Hematology:primary,FT,1.0,5,Evenings,A,2,26,2023-04-26,103,Independence Day; New Year's Day,
+T08,Elena Clarke,MLS(ASCP),Chemistry,Chemistry:primary,FT,1.0,5,Nights,B,1,20,2021-09-18,154,Independence Day; Christmas Day,No Sunday nights (childcare Monday AM); No Friday evenings/nights (observance)
+T09,Owen Kowalski,MLS(ASCP),Chemistry,Chemistry:primary,FT,1.0,5,Days,B,2,13,2015-12-01,174,Thanksgiving Day; Christmas Day,No Thursday evenings (second job)
+T10,Marcus Cohen,MLT(ASCP),Chemistry,Chemistry:primary; Microbiology:competent,FT,1.0,5,Evenings,A,1,11,2015-03-20,188,New Year's Day; Independence Day,
+T11,Caleb Okafor,MLS(ASCP),Chemistry,Chemistry:primary; Hematology:competent,FT,1.0,5,Rotating,A,2,14,2017-01-06,144,Christmas Day; New Year's Day,Every other Wednesday off (custody)
+T12,Owen Kim,MLS(ASCP),Chemistry,Chemistry:primary; Hematology:competent; Blood Bank:competent,FT,1.0,5,Evenings,B,2,6,2007-07-08,187,Thanksgiving Day; New Year's Day,
+T13,Imani Dubois,MLS(ASCP),Chemistry,Chemistry:primary; Hematology:competent,FT,1.0,5,Rotating,B,1,22,2022-03-20,70,Thanksgiving Day; Independence Day,
+T14,Priya Foster,MLS(ASCP),Chemistry,Chemistry:primary; Microbiology:training,FT,1.0,5,Nights,A,2,25,2023-03-20,110,Christmas Day; Independence Day,No Thursday evenings (second job)
+T15,Mei Kowalski,MLT(ASCP),Microbiology,Microbiology:primary,PT,0.6,3,Days,A,1,2,2001-11-30,171,New Year's Day; Christmas Day,
+T16,Hannah Mbeki,MLS(ASCP),Microbiology,Microbiology:primary; Hematology:competent,FT,1.0,5,Evenings,B,1,27,2023-04-26,120,Thanksgiving Day; Independence Day,No Tuesday day shifts (class schedule)
+T17,Jordan Okafor,MLT(ASCP),Microbiology,Microbiology:primary,FT,1.0,5,Days,B,2,12,2015-07-08,193,Independence Day; Thanksgiving Day,
+T18,Jordan Nguyen,MLT(ASCP),Microbiology,Microbiology:primary,PT,0.6,3,Days,A,1,24,2022-07-07,52,Thanksgiving Day; Christmas Day,No Sunday nights (childcare Monday AM)
+T19,Marcus Haddad,MLS(ASCP),Microbiology,Microbiology:primary; Chemistry:competent,FT,1.0,5,Days,B,2,19,2020-11-30,89,Independence Day; New Year's Day,No Tuesday day shifts (class schedule); No Monday day shifts (dialysis appt.)
+T20,Devon Larsen,MLS(ASCP),Blood Bank,Blood Bank:primary; Chemistry:competent,FT,1.0,5,Days,A,1,4,2004-02-12,171,Thanksgiving Day; Independence Day,
+T21,Devon Yilmaz,MLS(ASCP)SBB,Blood Bank,Blood Bank:primary; Chemistry:competent,FT,1.0,5,Evenings,B,1,5,2004-02-12,191,Independence Day; Thanksgiving Day,No Friday evenings/nights (observance); No Monday day shifts (dialysis appt.)
+T22,Samuel Silva,MLS(ASCP)SBB,Blood Bank,Blood Bank:primary; Hematology:competent; Chemistry:competent,PT,0.6,3,Days,B,2,28,2023-06-01,107,Christmas Day; Thanksgiving Day,
+T23,Mei Walsh,MLS(ASCP)SBB,Blood Bank,Blood Bank:primary; Chemistry:competent; Microbiology:training,FT,1.0,5,Evenings,A,2,10,2013-11-30,151,Thanksgiving Day; New Year's Day,No Friday evenings/nights (observance)
+T24,Avery Becker,MLS(ASCP),Blood Bank,Blood Bank:primary; Hematology:competent,FT,1.0,5,Days,A,1,17,2019-01-06,96,New Year's Day; Christmas Day,No Tuesday day shifts (class schedule); No Thursday evenings (second job)
+T25,Lucas Kowalski,MLS(ASCP),Blood Bank,Blood Bank:primary; Chemistry:competent,FT,1.0,5,Nights,A,2,9,2013-04-25,136,New Year's Day; Thanksgiving Day,
+T26,Grace Ivanova,MLS(ASCP),Blood Bank,Blood Bank:primary,FT,1.0,5,Nights,B,1,7,2007-10-25,121,New Year's Day; Independence Day,
+T27,Nadia Larsen,MLT(ASCP),Float,Hematology:primary; Chemistry:competent; Microbiology:competent; Blood Bank:competent,PRN,0.0,2,Days,B,2,23,2022-03-20,59,New Year's Day; Christmas Day,
+T28,Sofia Haddad,MLS(ASCP),Float,Hematology:competent; Chemistry:competent; Microbiology:primary; Blood Bank:competent,PRN,0.0,2,Days,A,1,16,2018-07-07,112,Thanksgiving Day; Independence Day,

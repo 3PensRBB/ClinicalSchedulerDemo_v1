@@ -2,11 +2,13 @@
 
 Generates, deterministically from a seed:
   * 28 lab technologist profiles (data/techs.json, data/techs.csv)
-  * US federal holidays across the planning horizon (data/holidays.json)
+  * US federal holidays across the planning horizon, with the alternating
+    holiday group that works each one (data/holidays.json)
   * Simulated vacation / PTO requests (data/pto_requests.json)
-  * Coverage requirements per department x shift (data/coverage_rules.json)
+  * Shift definitions and minimum coverage per bench x shift (data/coverage_rules.json)
 and prints a supply-vs-demand capacity check.
 
+Shift model: three 8-hour shifts (Day / Evening / Night).
 All names and people are fictional. Standard library only:
     python3 sim/generate_roster.py --seed 42 --start 2026-12-01 --months 13
 """
@@ -17,6 +19,7 @@ import argparse
 import csv
 import json
 import random
+from collections import defaultdict
 from dataclasses import asdict, dataclass, field
 from datetime import date, timedelta
 from pathlib import Path
@@ -25,31 +28,43 @@ DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 
 DEPARTMENTS = ["Hematology", "Chemistry", "Microbiology", "Blood Bank"]
 SHIFTS = {
-    "D": {"name": "Day", "start": "07:00", "end": "19:30", "paid_hours": 12},
-    "N": {"name": "Night", "start": "19:00", "end": "07:30", "paid_hours": 12},
+    "D": {"name": "Day", "start": "07:00", "end": "15:30", "paid_hours": 8},
+    "E": {"name": "Evening", "start": "15:00", "end": "23:30", "paid_hours": 8},
+    "N": {"name": "Night", "start": "23:00", "end": "07:30", "paid_hours": 8},
 }
+SHIFT_PREF_CODE = {"Days": "D", "Evenings": "E", "Nights": "N"}
 
-# Minimum staff per department per shift. Micro runs days only (night blood
-# cultures are loaded by Core Lab techs); weekends run a reduced day crew.
+# Minimum staff per bench per shift. Micro has no night bench (Core Lab loads
+# overnight blood cultures; Micro keeps an on-call tech) and no weekend evening.
+# Federal holidays are staffed like weekends.
+_WEEKEND = {"D": {"Hematology": 1, "Chemistry": 1, "Microbiology": 1, "Blood Bank": 1},
+            "E": {"Hematology": 1, "Chemistry": 1, "Microbiology": 0, "Blood Bank": 1},
+            "N": {"Hematology": 1, "Chemistry": 1, "Microbiology": 0, "Blood Bank": 1}}
 COVERAGE = {
-    "weekday": {"D": {"Hematology": 2, "Chemistry": 2, "Microbiology": 2, "Blood Bank": 1},
+    "weekday": {"D": {"Hematology": 2, "Chemistry": 2, "Microbiology": 2, "Blood Bank": 2},
+                "E": {"Hematology": 1, "Chemistry": 1, "Microbiology": 1, "Blood Bank": 1},
                 "N": {"Hematology": 1, "Chemistry": 1, "Microbiology": 0, "Blood Bank": 1}},
-    "weekend": {"D": {"Hematology": 1, "Chemistry": 1, "Microbiology": 1, "Blood Bank": 1},
-                "N": {"Hematology": 1, "Chemistry": 1, "Microbiology": 0, "Blood Bank": 1}},
-    # Federal holidays are staffed like weekends.
-    "holiday": {"D": {"Hematology": 1, "Chemistry": 1, "Microbiology": 1, "Blood Bank": 1},
-                "N": {"Hematology": 1, "Chemistry": 1, "Microbiology": 0, "Blood Bank": 1}},
+    "weekend": _WEEKEND,
+    "holiday": _WEEKEND,
 }
+# Extra staff allowed above the minimum (full-timers still need their hours).
+MAX_EXTRA = {"D": 2, "E": 1, "N": 1}
 
-# Home-department headcount (sums to 26) + 2 float/PRN = 28.
-HEADCOUNT = {"Hematology": 7, "Chemistry": 8, "Microbiology": 6, "Blood Bank": 5}
+# PTO policy: max techs from the same home bench off on one day; tighter
+# during the blackout window around each major holiday (date -3 .. +3).
+PTO_POLICY = {"max_off_per_bench": 2, "max_off_per_bench_blackout": 1, "blackout_days": 3}
+
+# Home-bench headcount (26) + 2 PRN floats = 28.
+HEADCOUNT = {"Hematology": 7, "Chemistry": 7, "Microbiology": 5, "Blood Bank": 7}
 FLOATS = 2
+# Fixed off-shift crews per home bench: (evenings, nights).
+CREWS = {"Hematology": (2, 2), "Chemistry": (2, 2), "Microbiology": (1, 0), "Blood Bank": (2, 2)}
+PART_TIMERS = 4
 
-# Plausible cross-training: which other benches a home dept commonly covers.
 CROSS_TRAIN_ODDS = {
     "Hematology": {"Chemistry": 0.6, "Blood Bank": 0.3, "Microbiology": 0.05},
     "Chemistry": {"Hematology": 0.6, "Blood Bank": 0.25, "Microbiology": 0.05},
-    "Microbiology": {"Hematology": 0.1, "Chemistry": 0.1, "Blood Bank": 0.1},
+    "Microbiology": {"Hematology": 0.15, "Chemistry": 0.15, "Blood Bank": 0.1},
     "Blood Bank": {"Hematology": 0.4, "Chemistry": 0.3, "Microbiology": 0.05},
 }
 
@@ -63,14 +78,15 @@ LAST = ["Nguyen", "Patel", "Okafor", "Garcia", "Kowalski", "Haddad", "Johnson", 
 
 MAJOR_HOLIDAYS = ["Thanksgiving Day", "Christmas Day", "New Year's Day", "Independence Day"]
 
+# Personal availability limits (soft, high weight). weekday: Mon=0..Sun=6.
+# week_parity: None = every week, 0/1 = only even/odd ISO weeks.
 CONSTRAINT_POOL = [
-    "No Tuesday days (class schedule)",
-    "No nights before Monday (childcare)",
-    "Prefers Fri/Sat/Sun weekend block",
-    "Max 2 consecutive nights",
-    "Carpools: pair with same-shift tech",
-    "Every other Wednesday off (custody)",
-    "Prefers 3-on / 4-off pattern",
+    {"label": "No Tuesday day shifts (class schedule)", "weekday": 1, "shifts": ["D"], "week_parity": None},
+    {"label": "No Sunday nights (childcare Monday AM)", "weekday": 6, "shifts": ["N"], "week_parity": None},
+    {"label": "Every other Wednesday off (custody)", "weekday": 2, "shifts": ["D", "E", "N"], "week_parity": 0},
+    {"label": "No Thursday evenings (second job)", "weekday": 3, "shifts": ["E"], "week_parity": None},
+    {"label": "No Friday evenings/nights (observance)", "weekday": 4, "shifts": ["E", "N"], "week_parity": None},
+    {"label": "No Monday day shifts (dialysis appt.)", "weekday": 0, "shifts": ["D"], "week_parity": 1},
 ]
 
 
@@ -80,18 +96,19 @@ class Tech:
     name: str
     credential: str
     home_dept: str
-    competencies: dict  # dept -> "primary" | "competent" | "training"
+    competencies: dict  # bench -> "primary" | "competent" | "training"
     fte: float
     employment: str  # FT | PT | PRN
-    shift_pref: str  # Days | Nights | Rotating
-    weekend_group: str  # A | B (works alternate weekends)
-    holiday_group: str  # 1 | 2 (alternates Thanksgiving+NY vs Christmas+July 4)
-    hire_date: str
-    seniority_rank: int = 0
+    shift_pref: str  # Days | Evenings | Nights | Rotating
+    weekend_group: str = "A"  # A works even-ISO-week weekends, B odd
+    holiday_group: str = "1"  # alternates which holidays are worked
+    hire_date: str = ""
+    seniority_rank: int = 0  # 1 = most senior
     pto_balance_hours: int = 0
     holiday_off_wishlist: list = field(default_factory=list)
     worked_last_year: list = field(default_factory=list)
-    max_consecutive_shifts: int = 4
+    max_consecutive_shifts: int = 5
+    shifts_per_week: int = 5  # FTE target (PRN = availability cap)
     on_call_eligible: bool = False
     constraints: list = field(default_factory=list)
 
@@ -126,17 +143,24 @@ def federal_holidays(year: int) -> list[dict]:
         ("Thanksgiving Day", nth_weekday(year, 11, 3, 4)),
         ("Christmas Day", date(year, 12, 25)),
     ]
-    out = []
-    for name, d in actual:
-        out.append({
-            "name": name,
-            # A 24/7 lab staffs the ACTUAL date; payroll may use the observed date.
-            "date": d.isoformat(),
-            "observed_date": observed(d).isoformat(),
-            "weekday": d.strftime("%A"),
-            "major": name in MAJOR_HOLIDAYS,
-        })
-    return out
+    return [{
+        "name": name,
+        # A 24/7 lab staffs the ACTUAL date; payroll may use the observed date.
+        "date": d.isoformat(),
+        "observed_date": observed(d).isoformat(),
+        "weekday": d.strftime("%A"),
+        "major": name in MAJOR_HOLIDAYS,
+    } for name, d in actual]
+
+
+def assign_holiday_groups(holidays: list[dict]) -> None:
+    """Alternate the working group holiday by holiday, chronologically.
+
+    Seeded so that Christmas flips each year: group 2 worked Christmas 2025, so
+    group 1 works the first holiday in the horizon (Christmas 2026).
+    """
+    for i, h in enumerate(sorted(holidays, key=lambda h: h["date"])):
+        h["working_group"] = "1" if i % 2 == 0 else "2"
 
 
 # ------------------------------------------------------------------ roster ---
@@ -148,11 +172,10 @@ def make_techs(rng: random.Random, today: date) -> list[Tech]:
         first, last = names[i]
         years = round(rng.triangular(0.3, 30, 6), 1)
         hire = today - timedelta(days=int(years * 365.25))
-
         if home == "Float":
             comps = {d: "competent" for d in DEPARTMENTS}
             comps[rng.choice(DEPARTMENTS)] = "primary"
-            employment, fte = "PRN", 0.0
+            employment, fte, spw = "PRN", 0.0, 2
         else:
             comps = {home: "primary"}
             for other, p in CROSS_TRAIN_ODDS[home].items():
@@ -161,52 +184,65 @@ def make_techs(rng: random.Random, today: date) -> list[Tech]:
                     comps[other] = "competent"
                 elif r < p + 0.08:
                     comps[other] = "training"
-            employment, fte = rng.choices([("FT", 0.9), ("PT", 0.6)], weights=[85, 15])[0]
-
-        # Holiday-group alternation seeded from last year's history.
-        hgroup = "1" if i % 2 == 0 else "2"
-        worked_last = (["Thanksgiving Day", "New Year's Day"] if hgroup == "1"
-                       else ["Christmas Day", "Independence Day"])
-
+            employment, fte, spw = "FT", 1.0, 5
+        bench_cred = ["MLS(ASCP)", "MLS(ASCP)SBB"] if home == "Blood Bank" else ["MLS(ASCP)", "MLT(ASCP)"]
         techs.append(Tech(
-            id=f"T{i + 1:02d}",
-            name=f"{first} {last}",
-            credential=rng.choices(["MLS(ASCP)", "MLT(ASCP)", "MLS(ASCP)SBB"], weights=[70, 25, 5])[0]
-            if home != "Blood Bank" else rng.choices(["MLS(ASCP)", "MLS(ASCP)SBB"], weights=[70, 30])[0],
-            home_dept=home,
-            competencies=comps,
-            fte=fte,
-            employment=employment,
-            shift_pref="Rotating",  # assigned below to hit a night-crew target
-            weekend_group=rng.choice("AB"),
-            holiday_group=hgroup,
-            hire_date=hire.isoformat(),
+            id=f"T{i + 1:02d}", name=f"{first} {last}",
+            credential=rng.choices(bench_cred, weights=[70, 30])[0],
+            home_dept=home, competencies=comps, fte=fte, employment=employment,
+            shift_pref="Days", shifts_per_week=spw, hire_date=hire.isoformat(),
             pto_balance_hours=rng.randint(40, 120) + (40 if years >= 5 else 0) + (40 if years >= 10 else 0),
             holiday_off_wishlist=rng.sample(MAJOR_HOLIDAYS, 2),
-            worked_last_year=worked_last,
-            max_consecutive_shifts=rng.choice([3, 4, 4, 5]),
+            max_consecutive_shifts=rng.choice([5, 5, 6]),
             on_call_eligible=home in ("Microbiology", "Blood Bank") and rng.random() < 0.6,
-            constraints=rng.sample(CONSTRAINT_POOL, rng.choices([0, 1, 2], weights=[50, 35, 15])[0]),
+            constraints=rng.sample(CONSTRAINT_POOL, rng.choices([0, 1, 2], weights=[55, 35, 10])[0]),
         ))
 
-    # Dedicated night crew: ~3 per night-staffed dept (Heme, Chem, BB) => 9 night techs.
-    for dept in ("Hematology", "Chemistry", "Blood Bank"):
-        pool = [t for t in techs if t.home_dept == dept and t.employment != "PRN"]
-        for t in rng.sample(pool, 3):
+    # Fixed evening / night crews (full-time), a few Rotating, the rest Days.
+    for dept, (n_eve, n_night) in CREWS.items():
+        pool = [t for t in techs if t.home_dept == dept]
+        rng.shuffle(pool)
+        for t in pool[:n_night]:
             t.shift_pref = "Nights"
-    for t in techs:
-        if t.shift_pref != "Nights":
-            t.shift_pref = rng.choices(["Days", "Rotating"], weights=[75, 25])[0]
+        for t in pool[n_night:n_night + n_eve]:
+            t.shift_pref = "Evenings"
+    day_staff = [t for t in techs if t.shift_pref == "Days" and t.employment == "FT"]
+    for t in rng.sample(day_staff, 3):
+        t.shift_pref = "Rotating"
+    for t in rng.sample([t for t in techs if t.shift_pref == "Days" and t.employment == "FT"], PART_TIMERS):
+        t.employment, t.fte, t.shifts_per_week = "PT", 0.6, 3
 
-    for rank, t in enumerate(sorted(techs, key=lambda t: t.hire_date), start=1):
+    # Weekend (A/B) and holiday (1/2) groups alternate WITHIN each crew so every
+    # bench/shift has someone available on every weekend and every holiday.
+    crews = defaultdict(list)
+    for t in techs:
+        crews[(t.home_dept, t.shift_pref)].append(t)
+    k = 0
+    for key in sorted(crews):
+        for j, t in enumerate(sorted(crews[key], key=lambda t: t.id)):
+            t.weekend_group = "AB"[(j + k) % 2]
+            t.holiday_group = "12"[(j + k // 2) % 2]
+        k += 1
+    for t in techs:
+        t.worked_last_year = (["Thanksgiving Day 2025", "New Year's Day 2026"] if t.holiday_group == "1"
+                              else ["Christmas Day 2025", "Independence Day 2026"])
+
+    for rank, t in enumerate(sorted(techs, key=lambda t: (t.hire_date, t.id)), start=1):
         t.seniority_rank = rank
     return techs
+
+
+def pto_hours(t: Tech, d0: date, d1: date) -> int:
+    weekdays = sum(1 for i in range((d1 - d0).days + 1) if (d0 + timedelta(days=i)).weekday() < 5)
+    return round(8 * weekdays * (t.shifts_per_week / 5))
 
 
 def make_pto_requests(rng: random.Random, techs: list[Tech], start: date, end: date,
                       holidays: list[dict]) -> list[dict]:
     reqs, n = [], 0
-    hol_dates = [date.fromisoformat(h["date"]) for h in holidays if h["major"]]
+    # Christmas is the most requested time off, then Thanksgiving.
+    odds = {"Christmas Day": 0.35, "Thanksgiving Day": 0.22, "New Year's Day": 0.15, "Independence Day": 0.18}
+    hol_dates = [(date.fromisoformat(h["date"]), odds[h["name"]]) for h in holidays if h["major"]]
 
     def add(t: Tech, d0: date, days: int, kind: str):
         nonlocal n
@@ -216,37 +252,68 @@ def make_pto_requests(rng: random.Random, techs: list[Tech], start: date, end: d
         n += 1
         reqs.append({
             "id": f"R{n:03d}", "tech_id": t.id, "start": d0.isoformat(), "end": d1.isoformat(),
-            "type": kind, "status": "pending",
+            "type": kind, "status": "pending", "hours": pto_hours(t, d0, d1),
             "submitted": (d0 - timedelta(days=rng.randint(30, 150))).isoformat(),
         })
 
     for t in techs:
         if t.employment == "PRN":
             continue
-        # One summer week (Jun-Aug).
-        if rng.random() < 0.8:
+        if rng.random() < 0.8:  # a summer week
             y = start.year + 1 if start.month > 8 else start.year
             add(t, date(y, rng.randint(6, 8), rng.randint(1, 24)), 7, "vacation")
-        # Holiday-adjacent block for wish-listed holidays (the conflict generator).
-        for h in hol_dates:
-            if rng.random() < 0.18:
+        for h, p in hol_dates:  # holiday-adjacent blocks: the conflict generator
+            if rng.random() < p:
                 add(t, h - timedelta(days=rng.randint(0, 3)), rng.randint(3, 6), "holiday-adjacent")
-        # Scattered single days.
-        for _ in range(rng.randint(1, 4)):
+        for _ in range(rng.randint(1, 4)):  # scattered single days
             add(t, start + timedelta(days=rng.randint(0, (end - start).days)), 1, "personal")
-    return sorted(reqs, key=lambda r: r["start"])
+    return sorted(reqs, key=lambda r: (r["start"], r["id"]))
 
 
 # ---------------------------------------------------------------- capacity ---
 def capacity_check(techs: list[Tech]) -> dict:
-    demand = 0
-    for day_type, n_days in (("weekday", 5), ("weekend", 2)):
-        for shift in SHIFTS:
-            demand += sum(COVERAGE[day_type][shift].values()) * n_days
-    # 0.9 FTE of 12h shifts on an 80h/2wk basis ~ 3 shifts/wk; PT ~ 2; PRN ~ 1 if called.
-    supply = sum(3 if t.employment == "FT" else 2 if t.employment == "PT" else 1 for t in techs)
-    return {"weekly_shift_demand": demand, "weekly_shift_supply": supply,
+    demand = sum(sum(COVERAGE[dt][s].values()) * n
+                 for dt, n in (("weekday", 5), ("weekend", 2)) for s in SHIFTS)
+    supply = sum(t.shifts_per_week for t in techs if t.employment != "PRN")
+    return {"weekly_shift_demand": demand, "weekly_shift_supply_ft_pt": supply,
+            "prn_available": sum(t.shifts_per_week for t in techs if t.employment == "PRN"),
             "slack_shifts": supply - demand, "slack_pct": round(100 * (supply - demand) / supply, 1)}
+
+
+def generate(seed: int = 42, start: str = "2026-12-01", months: int = 13, out_dir: Path = DATA_DIR) -> dict:
+    rng = random.Random(seed)
+    s = date.fromisoformat(start)
+    y, m = divmod(s.month - 1 + months, 12)
+    month_end = date(s.year + y, m + 1, 1) - timedelta(days=1)
+    s -= timedelta(days=s.weekday())  # snap to Monday (schedules run Mon-Sun weeks)
+    e = month_end + timedelta(days=6 - month_end.weekday())  # snap to Sunday
+
+    holidays = [h for yr in range(s.year, e.year + 1) for h in federal_holidays(yr)
+                if s.isoformat() <= h["date"] <= e.isoformat()]
+    assign_holiday_groups(holidays)
+    techs = make_techs(rng, s)
+    reqs = make_pto_requests(rng, techs, s, e, holidays)
+
+    out_dir.mkdir(parents=True, exist_ok=True)
+    (out_dir / "techs.json").write_text(json.dumps([asdict(t) for t in techs], indent=2))
+    (out_dir / "holidays.json").write_text(json.dumps(holidays, indent=2))
+    (out_dir / "pto_requests.json").write_text(json.dumps(reqs, indent=2))
+    (out_dir / "coverage_rules.json").write_text(json.dumps({
+        "horizon": {"start": s.isoformat(), "end": e.isoformat()},
+        "shifts": SHIFTS, "minimums": COVERAGE, "max_extra": MAX_EXTRA, "pto_policy": PTO_POLICY}, indent=2))
+    with open(out_dir / "techs.csv", "w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["id", "name", "credential", "home_dept", "competencies", "employment", "fte",
+                    "shifts_per_week", "shift_pref", "weekend_group", "holiday_group", "seniority_rank",
+                    "hire_date", "pto_balance_hours", "holiday_off_wishlist", "constraints"])
+        for t in techs:
+            w.writerow([t.id, t.name, t.credential, t.home_dept,
+                        "; ".join(f"{d}:{lvl}" for d, lvl in t.competencies.items()),
+                        t.employment, t.fte, t.shifts_per_week, t.shift_pref, t.weekend_group,
+                        t.holiday_group, t.seniority_rank, t.hire_date, t.pto_balance_hours,
+                        "; ".join(t.holiday_off_wishlist), "; ".join(c["label"] for c in t.constraints)])
+    return {"start": s, "end": e, "techs": techs, "holidays": holidays, "requests": reqs,
+            "capacity": capacity_check(techs)}
 
 
 def main() -> None:
@@ -255,38 +322,13 @@ def main() -> None:
     ap.add_argument("--start", default="2026-12-01")
     ap.add_argument("--months", type=int, default=13)
     args = ap.parse_args()
-
-    rng = random.Random(args.seed)
-    start = date.fromisoformat(args.start)
-    y, m = divmod(start.month - 1 + args.months, 12)
-    end = date(start.year + y, m + 1, 1) - timedelta(days=1)
-
-    holidays = [h for yr in range(start.year, end.year + 1) for h in federal_holidays(yr)
-                if start.isoformat() <= h["date"] <= end.isoformat()]
-    techs = make_techs(rng, start)
-    reqs = make_pto_requests(rng, techs, start, end, holidays)
-
-    DATA_DIR.mkdir(exist_ok=True)
-    (DATA_DIR / "techs.json").write_text(json.dumps([asdict(t) for t in techs], indent=2))
-    (DATA_DIR / "holidays.json").write_text(json.dumps(holidays, indent=2))
-    (DATA_DIR / "pto_requests.json").write_text(json.dumps(reqs, indent=2))
-    (DATA_DIR / "coverage_rules.json").write_text(json.dumps({"shifts": SHIFTS, "minimums": COVERAGE}, indent=2))
-    with open(DATA_DIR / "techs.csv", "w", newline="") as f:
-        w = csv.writer(f)
-        w.writerow(["id", "name", "credential", "home_dept", "competencies", "employment", "fte",
-                    "shift_pref", "weekend_group", "holiday_group", "seniority_rank", "hire_date",
-                    "pto_balance_hours", "holiday_off_wishlist", "constraints"])
-        for t in techs:
-            w.writerow([t.id, t.name, t.credential, t.home_dept,
-                        "; ".join(f"{d}:{lvl}" for d, lvl in t.competencies.items()),
-                        t.employment, t.fte, t.shift_pref, t.weekend_group, t.holiday_group,
-                        t.seniority_rank, t.hire_date, t.pto_balance_hours,
-                        "; ".join(t.holiday_off_wishlist), "; ".join(t.constraints)])
-
-    print(f"Horizon {start} -> {end}: {len(techs)} techs, {len(holidays)} holidays, {len(reqs)} PTO requests")
-    for h in holidays:
-        print(f"  {h['date']} {h['weekday']:<9} {h['name']}{'  *major' if h['major'] else ''}")
-    print("Capacity:", capacity_check(techs))
+    g = generate(args.seed, args.start, args.months)
+    print(f"Horizon {g['start']} -> {g['end']}: {len(g['techs'])} techs, "
+          f"{len(g['holidays'])} holidays, {len(g['requests'])} PTO requests")
+    for h in g["holidays"]:
+        print(f"  {h['date']} {h['weekday']:<9} group {h['working_group']} works  {h['name']}"
+              f"{'  *major' if h['major'] else ''}")
+    print("Capacity:", g["capacity"])
 
 
 if __name__ == "__main__":

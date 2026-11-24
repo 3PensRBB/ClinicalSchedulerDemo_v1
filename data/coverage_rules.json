@@ -1,16 +1,26 @@
 {
+  "horizon": {
+    "start": "2026-11-30",
+    "end": "2028-01-02"
+  },
   "shifts": {
     "D": {
       "name": "Day",
       "start": "07:00",
-      "end": "19:30",
-      "paid_hours": 12
+      "end": "15:30",
+      "paid_hours": 8
+    },
+    "E": {
+      "name": "Evening",
+      "start": "15:00",
+      "end": "23:30",
+      "paid_hours": 8
     },
     "N": {
       "name": "Night",
-      "start": "19:00",
+      "start": "23:00",
       "end": "07:30",
-      "paid_hours": 12
+      "paid_hours": 8
     }
   },
   "minimums": {
@@ -19,6 +29,12 @@
         "Hematology": 2,
         "Chemistry": 2,
         "Microbiology": 2,
+        "Blood Bank": 2
+      },
+      "E": {
+        "Hematology": 1,
+        "Chemistry": 1,
+        "Microbiology": 1,
         "Blood Bank": 1
       },
       "N": {
@@ -35,6 +51,12 @@
         "Microbiology": 1,
         "Blood Bank": 1
       },
+      "E": {
+        "Hematology": 1,
+        "Chemistry": 1,
+        "Microbiology": 0,
+        "Blood Bank": 1
+      },
       "N": {
         "Hematology": 1,
         "Chemistry": 1,
@@ -49,6 +71,12 @@
         "Microbiology": 1,
         "Blood Bank": 1
       },
+      "E": {
+        "Hematology": 1,
+        "Chemistry": 1,
+        "Microbiology": 0,
+        "Blood Bank": 1
+      },
       "N": {
         "Hematology": 1,
         "Chemistry": 1,
@@ -56,5 +84,15 @@
         "Blood Bank": 1
       }
     }
+  },
+  "max_extra": {
+    "D": 2,
+    "E": 1,
+    "N": 1
+  },
+  "pto_policy": {
+    "max_off_per_bench": 2,
+    "max_off_per_bench_blackout": 1,
+    "blackout_days": 3
   }
 }

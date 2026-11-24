@@ -8,57 +8,58 @@
       "Hematology": "primary",
       "Chemistry": "competent"
     },
-    "fte": 0.6,
-    "employment": "PT",
-    "shift_pref": "Nights",
-    "weekend_group": "A",
-    "holiday_group": "1",
-    "hire_date": "2011-07-09",
-    "seniority_rank": 6,
-    "pto_balance_hours": 174,
+    "fte": 1.0,
+    "employment": "FT",
+    "shift_pref": "Rotating",
+    "weekend_group": "B",
+    "holiday_group": "2",
+    "hire_date": "2011-07-08",
+    "seniority_rank": 8,
+    "pto_balance_hours": 140,
     "holiday_off_wishlist": [
-      "New Year's Day",
+      "Independence Day",
       "Christmas Day"
     ],
     "worked_last_year": [
-      "Thanksgiving Day",
-      "New Year's Day"
+      "Christmas Day 2025",
+      "Independence Day 2026"
     ],
-    "max_consecutive_shifts": 4,
+    "max_consecutive_shifts": 5,
+    "shifts_per_week": 5,
     "on_call_eligible": false,
     "constraints": []
   },
   {
     "id": "T02",
     "name": "Marcus Brooks",
-    "credential": "MLS(ASCP)",
+    "credential": "MLT(ASCP)",
     "home_dept": "Hematology",
     "competencies": {
       "Hematology": "primary",
       "Chemistry": "competent",
-      "Blood Bank": "training"
+      "Blood Bank": "competent",
+      "Microbiology": "training"
     },
-    "fte": 0.9,
+    "fte": 1.0,
     "employment": "FT",
-    "shift_pref": "Days",
+    "shift_pref": "Nights",
     "weekend_group": "A",
     "holiday_group": "2",
-    "hire_date": "2009-12-01",
-    "seniority_rank": 5,
-    "pto_balance_hours": 178,
+    "hire_date": "2002-06-01",
+    "seniority_rank": 3,
+    "pto_balance_hours": 197,
     "holiday_off_wishlist": [
-      "Thanksgiving Day",
-      "Christmas Day"
+      "New Year's Day",
+      "Thanksgiving Day"
     ],
     "worked_last_year": [
-      "Christmas Day",
-      "Independence Day"
+      "Christmas Day 2025",
+      "Independence Day 2026"
     ],
-    "max_consecutive_shifts": 3,
+    "max_consecutive_shifts": 6,
+    "shifts_per_week": 5,
     "on_call_eligible": false,
-    "constraints": [
-      "Prefers 3-on / 4-off pattern"
-    ]
+    "constraints": []
   },
   {
     "id": "T03",
@@ -67,146 +68,148 @@
     "home_dept": "Hematology",
     "competencies": {
       "Hematology": "primary",
-      "Blood Bank": "training"
+      "Blood Bank": "competent"
     },
-    "fte": 0.9,
-    "employment": "FT",
-    "shift_pref": "Nights",
-    "weekend_group": "B",
+    "fte": 0.6,
+    "employment": "PT",
+    "shift_pref": "Days",
+    "weekend_group": "A",
     "holiday_group": "1",
-    "hire_date": "2013-03-21",
-    "seniority_rank": 9,
-    "pto_balance_hours": 130,
+    "hire_date": "2022-01-06",
+    "seniority_rank": 21,
+    "pto_balance_hours": 86,
     "holiday_off_wishlist": [
       "Christmas Day",
-      "Thanksgiving Day"
-    ],
-    "worked_last_year": [
-      "Thanksgiving Day",
       "New Year's Day"
     ],
+    "worked_last_year": [
+      "Thanksgiving Day 2025",
+      "New Year's Day 2026"
+    ],
     "max_consecutive_shifts": 5,
+    "shifts_per_week": 3,
     "on_call_eligible": false,
     "constraints": []
   },
   {
     "id": "T04",
     "name": "Owen Thompson",
-    "credential": "MLT(ASCP)",
+    "credential": "MLS(ASCP)",
     "home_dept": "Hematology",
     "competencies": {
       "Hematology": "primary",
       "Chemistry": "competent",
-      "Blood Bank": "training"
+      "Blood Bank": "competent"
     },
-    "fte": 0.9,
+    "fte": 1.0,
     "employment": "FT",
-    "shift_pref": "Rotating",
-    "weekend_group": "A",
-    "holiday_group": "2",
-    "hire_date": "2013-01-07",
-    "seniority_rank": 8,
-    "pto_balance_hours": 197,
+    "shift_pref": "Nights",
+    "weekend_group": "B",
+    "holiday_group": "1",
+    "hire_date": "2020-05-31",
+    "seniority_rank": 18,
+    "pto_balance_hours": 115,
     "holiday_off_wishlist": [
-      "Christmas Day",
+      "Independence Day",
       "New Year's Day"
     ],
     "worked_last_year": [
-      "Christmas Day",
-      "Independence Day"
+      "Thanksgiving Day 2025",
+      "New Year's Day 2026"
     ],
-    "max_consecutive_shifts": 4,
+    "max_consecutive_shifts": 5,
+    "shifts_per_week": 5,
     "on_call_eligible": false,
     "constraints": []
   },
   {
     "id": "T05",
     "name": "Kenji Andersen",
-    "credential": "MLT(ASCP)",
+    "credential": "MLS(ASCP)",
     "home_dept": "Hematology",
     "competencies": {
-      "Hematology": "primary"
+      "Hematology": "primary",
+      "Chemistry": "training"
     },
-    "fte": 0.9,
+    "fte": 1.0,
     "employment": "FT",
-    "shift_pref": "Days",
-    "weekend_group": "A",
+    "shift_pref": "Evenings",
+    "weekend_group": "B",
     "holiday_group": "1",
-    "hire_date": "2017-12-01",
-    "seniority_rank": 19,
-    "pto_balance_hours": 109,
+    "hire_date": "2018-04-25",
+    "seniority_rank": 15,
+    "pto_balance_hours": 101,
     "holiday_off_wishlist": [
-      "Thanksgiving Day",
-      "Christmas Day"
+      "Christmas Day",
+      "Thanksgiving Day"
     ],
     "worked_last_year": [
-      "Thanksgiving Day",
-      "New Year's Day"
+      "Thanksgiving Day 2025",
+      "New Year's Day 2026"
     ],
     "max_consecutive_shifts": 5,
+    "shifts_per_week": 5,
     "on_call_eligible": false,
     "constraints": []
   },
   {
     "id": "T06",
     "name": "Aisha Reyes",
+    "credential": "MLT(ASCP)",
+    "home_dept": "Hematology",
+    "competencies": {
+      "Hematology": "primary",
+      "Chemistry": "training"
+    },
+    "fte": 1.0,
+    "employment": "FT",
+    "shift_pref": "Days",
+    "weekend_group": "B",
+    "holiday_group": "2",
+    "hire_date": "1999-08-13",
+    "seniority_rank": 1,
+    "pto_balance_hours": 127,
+    "holiday_off_wishlist": [
+      "Christmas Day",
+      "Thanksgiving Day"
+    ],
+    "worked_last_year": [
+      "Christmas Day 2025",
+      "Independence Day 2026"
+    ],
+    "max_consecutive_shifts": 5,
+    "shifts_per_week": 5,
+    "on_call_eligible": false,
+    "constraints": []
+  },
+  {
+    "id": "T07",
+    "name": "Devon Dubois",
     "credential": "MLS(ASCP)",
     "home_dept": "Hematology",
     "competencies": {
       "Hematology": "primary"
     },
-    "fte": 0.9,
+    "fte": 1.0,
     "employment": "FT",
-    "shift_pref": "Rotating",
-    "weekend_group": "B",
+    "shift_pref": "Evenings",
+    "weekend_group": "A",
     "holiday_group": "2",
-    "hire_date": "2020-08-13",
+    "hire_date": "2023-04-26",
     "seniority_rank": 26,
-    "pto_balance_hours": 98,
+    "pto_balance_hours": 103,
     "holiday_off_wishlist": [
-      "New Year's Day",
-      "Thanksgiving Day"
-    ],
-    "worked_last_year": [
-      "Christmas Day",
-      "Independence Day"
-    ],
-    "max_consecutive_shifts": 4,
-    "on_call_eligible": false,
-    "constraints": [
-      "Carpools: pair with same-shift tech"
-    ]
-  },
-  {
-    "id": "T07",
-    "name": "Devon Dubois",
-    "credential": "MLS(ASCP)SBB",
-    "home_dept": "Hematology",
-    "competencies": {
-      "Hematology": "primary",
-      "Chemistry": "competent"
-    },
-    "fte": 0.9,
-    "employment": "FT",
-    "shift_pref": "Nights",
-    "weekend_group": "B",
-    "holiday_group": "1",
-    "hire_date": "2019-10-26",
-    "seniority_rank": 24,
-    "pto_balance_hours": 91,
-    "holiday_off_wishlist": [
-      "Thanksgiving Day",
-      "Independence Day"
-    ],
-    "worked_last_year": [
-      "Thanksgiving Day",
+      "Independence Day",
       "New Year's Day"
     ],
-    "max_consecutive_shifts": 4,
+    "worked_last_year": [
+      "Christmas Day 2025",
+      "Independence Day 2026"
+    ],
+    "max_consecutive_shifts": 5,
+    "shifts_per_week": 5,
     "on_call_eligible": false,
-    "constraints": [
-      "Prefers 3-on / 4-off pattern"
-    ]
+    "constraints": []
   },
   {
     "id": "T08",
@@ -214,28 +217,46 @@
     "credential": "MLS(ASCP)",
     "home_dept": "Chemistry",
     "competencies": {
-      "Chemistry": "primary",
-      "Hematology": "competent"
+      "Chemistry": "primary"
     },
-    "fte": 0.9,
+    "fte": 1.0,
     "employment": "FT",
-    "shift_pref": "Days",
-    "weekend_group": "A",
-    "holiday_group": "2",
-    "hire_date": "2012-01-07",
-    "seniority_rank": 7,
-    "pto_balance_hours": 134,
+    "shift_pref": "Nights",
+    "weekend_group": "B",
+    "holiday_group": "1",
+    "hire_date": "2021-09-18",
+    "seniority_rank": 20,
+    "pto_balance_hours": 154,
     "holiday_off_wishlist": [
-      "New Year's Day",
-      "Independence Day"
+      "Independence Day",
+      "Christmas Day"
     ],
     "worked_last_year": [
-      "Christmas Day",
-      "Independence Day"
+      "Thanksgiving Day 2025",
+      "New Year's Day 2026"
     ],
-    "max_consecutive_shifts": 4,
+    "max_consecutive_shifts": 5,
+    "shifts_per_week": 5,
     "on_call_eligible": false,
-    "constraints": []
+    "constraints": [
+      {
+        "label": "No Sunday nights (childcare Monday AM)",
+        "weekday": 6,
+        "shifts": [
+          "N"
+        ],
+        "week_parity": null
+      },
+      {
+        "label": "No Friday evenings/nights (observance)",
+        "weekday": 4,
+        "shifts": [
+          "E",
+          "N"
+        ],
+        "week_parity": null
+      }
+    ]
   },
   {
     "id": "T09",
@@ -243,57 +264,65 @@
     "credential": "MLS(ASCP)",
     "home_dept": "Chemistry",
     "competencies": {
-      "Chemistry": "primary",
-      "Hematology": "competent"
+      "Chemistry": "primary"
     },
-    "fte": 0.9,
+    "fte": 1.0,
     "employment": "FT",
     "shift_pref": "Days",
-    "weekend_group": "A",
-    "holiday_group": "1",
-    "hire_date": "2017-01-07",
-    "seniority_rank": 18,
-    "pto_balance_hours": 144,
+    "weekend_group": "B",
+    "holiday_group": "2",
+    "hire_date": "2015-12-01",
+    "seniority_rank": 13,
+    "pto_balance_hours": 174,
     "holiday_off_wishlist": [
       "Thanksgiving Day",
-      "New Year's Day"
+      "Christmas Day"
     ],
     "worked_last_year": [
-      "Thanksgiving Day",
-      "New Year's Day"
+      "Christmas Day 2025",
+      "Independence Day 2026"
     ],
-    "max_consecutive_shifts": 4,
+    "max_consecutive_shifts": 5,
+    "shifts_per_week": 5,
     "on_call_eligible": false,
     "constraints": [
-      "Carpools: pair with same-shift tech"
+      {
+        "label": "No Thursday evenings (second job)",
+        "weekday": 3,
+        "shifts": [
+          "E"
+        ],
+        "week_parity": null
+      }
     ]
   },
   {
     "id": "T10",
     "name": "Marcus Cohen",
-    "credential": "MLS(ASCP)",
+    "credential": "MLT(ASCP)",
     "home_dept": "Chemistry",
     "competencies": {
       "Chemistry": "primary",
-      "Hematology": "competent"
+      "Microbiology": "competent"
     },
-    "fte": 0.9,
+    "fte": 1.0,
     "employment": "FT",
-    "shift_pref": "Days",
+    "shift_pref": "Evenings",
     "weekend_group": "A",
-    "holiday_group": "2",
-    "hire_date": "2013-08-14",
+    "holiday_group": "1",
+    "hire_date": "2015-03-20",
     "seniority_rank": 11,
-    "pto_balance_hours": 196,
+    "pto_balance_hours": 188,
     "holiday_off_wishlist": [
       "New Year's Day",
-      "Christmas Day"
-    ],
-    "worked_last_year": [
-      "Christmas Day",
       "Independence Day"
     ],
-    "max_consecutive_shifts": 3,
+    "worked_last_year": [
+      "Thanksgiving Day 2025",
+      "New Year's Day 2026"
+    ],
+    "max_consecutive_shifts": 5,
+    "shifts_per_week": 5,
     "on_call_eligible": false,
     "constraints": []
   },
@@ -303,27 +332,40 @@
     "credential": "MLS(ASCP)",
     "home_dept": "Chemistry",
     "competencies": {
-      "Chemistry": "primary"
+      "Chemistry": "primary",
+      "Hematology": "competent"
     },
-    "fte": 0.9,
+    "fte": 1.0,
     "employment": "FT",
-    "shift_pref": "Days",
+    "shift_pref": "Rotating",
     "weekend_group": "A",
-    "holiday_group": "1",
-    "hire_date": "2018-03-21",
-    "seniority_rank": 20,
-    "pto_balance_hours": 90,
+    "holiday_group": "2",
+    "hire_date": "2017-01-06",
+    "seniority_rank": 14,
+    "pto_balance_hours": 144,
     "holiday_off_wishlist": [
-      "Independence Day",
-      "Thanksgiving Day"
-    ],
-    "worked_last_year": [
-      "Thanksgiving Day",
+      "Christmas Day",
       "New Year's Day"
     ],
-    "max_consecutive_shifts": 4,
+    "worked_last_year": [
+      "Christmas Day 2025",
+      "Independence Day 2026"
+    ],
+    "max_consecutive_shifts": 5,
+    "shifts_per_week": 5,
     "on_call_eligible": false,
-    "constraints": []
+    "constraints": [
+      {
+        "label": "Every other Wednesday off (custody)",
+        "weekday": 2,
+        "shifts": [
+          "D",
+          "E",
+          "N"
+        ],
+        "week_parity": 0
+      }
+    ]
   },
   {
     "id": "T12",
@@ -333,25 +375,26 @@
     "competencies": {
       "Chemistry": "primary",
       "Hematology": "competent",
-      "Blood Bank": "training"
+      "Blood Bank": "competent"
     },
-    "fte": 0.9,
+    "fte": 1.0,
     "employment": "FT",
-    "shift_pref": "Nights",
-    "weekend_group": "A",
+    "shift_pref": "Evenings",
+    "weekend_group": "B",
     "holiday_group": "2",
-    "hire_date": "2016-03-20",
-    "seniority_rank": 17,
-    "pto_balance_hours": 159,
+    "hire_date": "2007-07-08",
+    "seniority_rank": 6,
+    "pto_balance_hours": 187,
     "holiday_off_wishlist": [
-      "Independence Day",
+      "Thanksgiving Day",
       "New Year's Day"
     ],
     "worked_last_year": [
-      "Christmas Day",
-      "Independence Day"
+      "Christmas Day 2025",
+      "Independence Day 2026"
     ],
-    "max_consecutive_shifts": 4,
+    "max_consecutive_shifts": 5,
+    "shifts_per_week": 5,
     "on_call_eligible": false,
     "constraints": []
   },
@@ -362,26 +405,26 @@
     "home_dept": "Chemistry",
     "competencies": {
       "Chemistry": "primary",
-      "Hematology": "competent",
-      "Blood Bank": "competent"
+      "Hematology": "competent"
     },
-    "fte": 0.9,
+    "fte": 1.0,
     "employment": "FT",
-    "shift_pref": "Nights",
-    "weekend_group": "A",
+    "shift_pref": "Rotating",
+    "weekend_group": "B",
     "holiday_group": "1",
-    "hire_date": "2015-06-02",
-    "seniority_rank": 16,
-    "pto_balance_hours": 120,
+    "hire_date": "2022-03-20",
+    "seniority_rank": 22,
+    "pto_balance_hours": 70,
     "holiday_off_wishlist": [
       "Thanksgiving Day",
-      "New Year's Day"
+      "Independence Day"
     ],
     "worked_last_year": [
-      "Thanksgiving Day",
-      "New Year's Day"
+      "Thanksgiving Day 2025",
+      "New Year's Day 2026"
     ],
-    "max_consecutive_shifts": 3,
+    "max_consecutive_shifts": 6,
+    "shifts_per_week": 5,
     "on_call_eligible": false,
     "constraints": []
   },
@@ -392,60 +435,66 @@
     "home_dept": "Chemistry",
     "competencies": {
       "Chemistry": "primary",
-      "Blood Bank": "competent"
+      "Microbiology": "training"
     },
-    "fte": 0.9,
+    "fte": 1.0,
     "employment": "FT",
-    "shift_pref": "Days",
+    "shift_pref": "Nights",
     "weekend_group": "A",
     "holiday_group": "2",
-    "hire_date": "2005-02-12",
-    "seniority_rank": 4,
-    "pto_balance_hours": 193,
+    "hire_date": "2023-03-20",
+    "seniority_rank": 25,
+    "pto_balance_hours": 110,
     "holiday_off_wishlist": [
-      "Independence Day",
-      "Thanksgiving Day"
-    ],
-    "worked_last_year": [
       "Christmas Day",
       "Independence Day"
     ],
-    "max_consecutive_shifts": 5,
+    "worked_last_year": [
+      "Christmas Day 2025",
+      "Independence Day 2026"
+    ],
+    "max_consecutive_shifts": 6,
+    "shifts_per_week": 5,
     "on_call_eligible": false,
     "constraints": [
-      "No nights before Monday (childcare)"
+      {
+        "label": "No Thursday evenings (second job)",
+        "weekday": 3,
+        "shifts": [
+          "E"
+        ],
+        "week_parity": null
+      }
     ]
   },
   {
     "id": "T15",
     "name": "Mei Kowalski",
-    "credential": "MLS(ASCP)",
-    "home_dept": "Chemistry",
+    "credential": "MLT(ASCP)",
+    "home_dept": "Microbiology",
     "competencies": {
-      "Chemistry": "primary",
-      "Hematology": "training"
+      "Microbiology": "primary"
     },
     "fte": 0.6,
     "employment": "PT",
-    "shift_pref": "Nights",
+    "shift_pref": "Days",
     "weekend_group": "A",
     "holiday_group": "1",
-    "hire_date": "2022-08-14",
-    "seniority_rank": 28,
-    "pto_balance_hours": 47,
+    "hire_date": "2001-11-30",
+    "seniority_rank": 2,
+    "pto_balance_hours": 171,
     "holiday_off_wishlist": [
-      "Independence Day",
-      "New Year's Day"
+      "New Year's Day",
+      "Christmas Day"
     ],
     "worked_last_year": [
-      "Thanksgiving Day",
-      "New Year's Day"
+      "Thanksgiving Day 2025",
+      "New Year's Day 2026"
     ],
-    "max_consecutive_shifts": 4,
-    "on_call_eligible": false,
-    "constraints": [
-      "No Tuesday days (class schedule)"
-    ]
+    "max_consecutive_shifts": 6,
+    "shifts_per_week": 3,
+    "on_call_eligible": true,
+    "constraints": []
   },
   {
     "id": "T16",
@@ -453,91 +502,104 @@
     "credential": "MLS(ASCP)",
     "home_dept": "Microbiology",
     "competencies": {
-      "Microbiology": "primary"
+      "Microbiology": "primary",
+      "Hematology": "competent"
     },
-    "fte": 0.9,
+    "fte": 1.0,
     "employment": "FT",
-    "shift_pref": "Days",
-    "weekend_group": "A",
-    "holiday_group": "2",
-    "hire_date": "2020-01-07",
-    "seniority_rank": 25,
-    "pto_balance_hours": 136,
+    "shift_pref": "Evenings",
+    "weekend_group": "B",
+    "holiday_group": "1",
+    "hire_date": "2023-04-26",
+    "seniority_rank": 27,
+    "pto_balance_hours": 120,
     "holiday_off_wishlist": [
       "Thanksgiving Day",
       "Independence Day"
     ],
     "worked_last_year": [
-      "Christmas Day",
-      "Independence Day"
+      "Thanksgiving Day 2025",
+      "New Year's Day 2026"
     ],
-    "max_consecutive_shifts": 3,
+    "max_consecutive_shifts": 5,
+    "shifts_per_week": 5,
     "on_call_eligible": false,
     "constraints": [
-      "Prefers 3-on / 4-off pattern",
-      "No nights before Monday (childcare)"
+      {
+        "label": "No Tuesday day shifts (class schedule)",
+        "weekday": 1,
+        "shifts": [
+          "D"
+        ],
+        "week_parity": null
+      }
     ]
   },
   {
     "id": "T17",
     "name": "Jordan Okafor",
-    "credential": "MLS(ASCP)",
+    "credential": "MLT(ASCP)",
     "home_dept": "Microbiology",
     "competencies": {
       "Microbiology": "primary"
     },
-    "fte": 0.9,
+    "fte": 1.0,
     "employment": "FT",
     "shift_pref": "Days",
     "weekend_group": "B",
-    "holiday_group": "1",
-    "hire_date": "2021-04-26",
-    "seniority_rank": 27,
-    "pto_balance_hours": 113,
+    "holiday_group": "2",
+    "hire_date": "2015-07-08",
+    "seniority_rank": 12,
+    "pto_balance_hours": 193,
     "holiday_off_wishlist": [
       "Independence Day",
-      "Christmas Day"
+      "Thanksgiving Day"
     ],
     "worked_last_year": [
-      "Thanksgiving Day",
-      "New Year's Day"
+      "Christmas Day 2025",
+      "Independence Day 2026"
     ],
     "max_consecutive_shifts": 5,
+    "shifts_per_week": 5,
     "on_call_eligible": false,
-    "constraints": [
-      "Prefers 3-on / 4-off pattern"
-    ]
+    "constraints": []
   },
   {
     "id": "T18",
     "name": "Jordan Nguyen",
-    "credential": "MLS(ASCP)",
+    "credential": "MLT(ASCP)",
     "home_dept": "Microbiology",
     "competencies": {
-      "Microbiology": "primary",
-      "Chemistry": "training"
+      "Microbiology": "primary"
     },
     "fte": 0.6,
     "employment": "PT",
     "shift_pref": "Days",
     "weekend_group": "A",
-    "holiday_group": "2",
-    "hire_date": "2014-09-19",
-    "seniority_rank": 14,
-    "pto_balance_hours": 160,
+    "holiday_group": "1",
+    "hire_date": "2022-07-07",
+    "seniority_rank": 24,
+    "pto_balance_hours": 52,
     "holiday_off_wishlist": [
       "Thanksgiving Day",
-      "Independence Day"
+      "Christmas Day"
     ],
     "worked_last_year": [
-      "Christmas Day",
-      "Independence Day"
+      "Thanksgiving Day 2025",
+      "New Year's Day 2026"
     ],
-    "max_consecutive_shifts": 5,
+    "max_consecutive_shifts": 6,
+    "shifts_per_week": 3,
     "on_call_eligible": true,
     "constraints": [
-      "No nights before Monday (childcare)",
-      "No Tuesday days (class schedule)"
+      {
+        "label": "No Sunday nights (childcare Monday AM)",
+        "weekday": 6,
+        "shifts": [
+          "N"
+        ],
+        "week_parity": null
+      }
     ]
   },
   {
@@ -547,207 +609,271 @@
     "home_dept": "Microbiology",
     "competencies": {
       "Microbiology": "primary",
-      "Hematology": "competent"
+      "Chemistry": "competent"
     },
-    "fte": 0.9,
+    "fte": 1.0,
     "employment": "FT",
     "shift_pref": "Days",
-    "weekend_group": "A",
-    "holiday_group": "1",
-    "hire_date": "2002-03-21",
-    "seniority_rank": 1,
-    "pto_balance_hours": 192,
+    "weekend_group": "B",
+    "holiday_group": "2",
+    "hire_date": "2020-11-30",
+    "seniority_rank": 19,
+    "pto_balance_hours": 89,
     "holiday_off_wishlist": [
-      "Christmas Day",
+      "Independence Day",
       "New Year's Day"
     ],
     "worked_last_year": [
-      "Thanksgiving Day",
-      "New Year's Day"
+      "Christmas Day 2025",
+      "Independence Day 2026"
     ],
-    "max_consecutive_shifts": 3,
-    "on_call_eligible": false,
-    "constraints": []
+    "max_consecutive_shifts": 5,
+    "shifts_per_week": 5,
+    "on_call_eligible": true,
+    "constraints": [
+      {
+        "label": "No Tuesday day shifts (class schedule)",
+        "weekday": 1,
+        "shifts": [
+          "D"
+        ],
+        "week_parity": null
+      },
+      {
+        "label": "No Monday day shifts (dialysis appt.)",
+        "weekday": 0,
+        "shifts": [
+          "D"
+        ],
+        "week_parity": 1
+      }
+    ]
   },
   {
     "id": "T20",
     "name": "Devon Larsen",
     "credential": "MLS(ASCP)",
-    "home_dept": "Microbiology",
+    "home_dept": "Blood Bank",
     "competencies": {
-      "Microbiology": "primary"
+      "Blood Bank": "primary",
+      "Chemistry": "competent"
     },
-    "fte": 0.9,
+    "fte": 1.0,
     "employment": "FT",
     "shift_pref": "Days",
-    "weekend_group": "B",
-    "holiday_group": "2",
-    "hire_date": "2014-02-12",
-    "seniority_rank": 12,
-    "pto_balance_hours": 136,
+    "weekend_group": "A",
+    "holiday_group": "1",
+    "hire_date": "2004-02-12",
+    "seniority_rank": 4,
+    "pto_balance_hours": 171,
     "holiday_off_wishlist": [
-      "New Year's Day",
-      "Christmas Day"
-    ],
-    "worked_last_year": [
-      "Christmas Day",
+      "Thanksgiving Day",
       "Independence Day"
     ],
-    "max_consecutive_shifts": 4,
-    "on_call_eligible": false,
-    "constraints": [
-      "No Tuesday days (class schedule)",
-      "Max 2 consecutive nights"
-    ]
+    "worked_last_year": [
+      "Thanksgiving Day 2025",
+      "New Year's Day 2026"
+    ],
+    "max_consecutive_shifts": 5,
+    "shifts_per_week": 5,
+    "on_call_eligible": true,
+    "constraints": []
   },
   {
     "id": "T21",
     "name": "Devon Yilmaz",
-    "credential": "MLS(ASCP)",
-    "home_dept": "Microbiology",
+    "credential": "MLS(ASCP)SBB",
+    "home_dept": "Blood Bank",
     "competencies": {
-      "Microbiology": "primary",
+      "Blood Bank": "primary",
       "Chemistry": "competent"
     },
-    "fte": 0.9,
+    "fte": 1.0,
     "employment": "FT",
-    "shift_pref": "Days",
+    "shift_pref": "Evenings",
     "weekend_group": "B",
     "holiday_group": "1",
-    "hire_date": "2013-04-26",
-    "seniority_rank": 10,
-    "pto_balance_hours": 128,
+    "hire_date": "2004-02-12",
+    "seniority_rank": 5,
+    "pto_balance_hours": 191,
     "holiday_off_wishlist": [
-      "Christmas Day",
-      "Independence Day"
+      "Independence Day",
+      "Thanksgiving Day"
     ],
     "worked_last_year": [
-      "Thanksgiving Day",
-      "New Year's Day"
+      "Thanksgiving Day 2025",
+      "New Year's Day 2026"
     ],
-    "max_consecutive_shifts": 4,
+    "max_consecutive_shifts": 5,
+    "shifts_per_week": 5,
     "on_call_eligible": true,
     "constraints": [
-      "Every other Wednesday off (custody)"
+      {
+        "label": "No Friday evenings/nights (observance)",
+        "weekday": 4,
+        "shifts": [
+          "E",
+          "N"
+        ],
+        "week_parity": null
+      },
+      {
+        "label": "No Monday day shifts (dialysis appt.)",
+        "weekday": 0,
+        "shifts": [
+          "D"
+        ],
+        "week_parity": 1
+      }
     ]
   },
   {
     "id": "T22",
     "name": "Samuel Silva",
-    "credential": "MLS(ASCP)",
-    "home_dept": "Blood Bank",
-    "competencies": {
-      "Blood Bank": "primary"
-    },
-    "fte": 0.9,
-    "employment": "FT",
-    "shift_pref": "Nights",
-    "weekend_group": "A",
-    "holiday_group": "2",
-    "hire_date": "2019-03-21",
-    "seniority_rank": 22,
-    "pto_balance_hours": 97,
-    "holiday_off_wishlist": [
-      "New Year's Day",
-      "Thanksgiving Day"
-    ],
-    "worked_last_year": [
-      "Christmas Day",
-      "Independence Day"
-    ],
-    "max_consecutive_shifts": 3,
-    "on_call_eligible": false,
-    "constraints": []
-  },
-  {
-    "id": "T23",
-    "name": "Mei Walsh",
-    "credential": "MLS(ASCP)",
+    "credential": "MLS(ASCP)SBB",
     "home_dept": "Blood Bank",
     "competencies": {
       "Blood Bank": "primary",
       "Hematology": "competent",
-      "Chemistry": "training"
+      "Chemistry": "competent"
     },
     "fte": 0.6,
     "employment": "PT",
     "shift_pref": "Days",
     "weekend_group": "B",
-    "holiday_group": "1",
-    "hire_date": "2019-07-09",
-    "seniority_rank": 23,
-    "pto_balance_hours": 86,
+    "holiday_group": "2",
+    "hire_date": "2023-06-01",
+    "seniority_rank": 28,
+    "pto_balance_hours": 107,
+    "holiday_off_wishlist": [
+      "Christmas Day",
+      "Thanksgiving Day"
+    ],
+    "worked_last_year": [
+      "Christmas Day 2025",
+      "Independence Day 2026"
+    ],
+    "max_consecutive_shifts": 6,
+    "shifts_per_week": 3,
+    "on_call_eligible": true,
+    "constraints": []
+  },
+  {
+    "id": "T23",
+    "name": "Mei Walsh",
+    "credential": "MLS(ASCP)SBB",
+    "home_dept": "Blood Bank",
+    "competencies": {
+      "Blood Bank": "primary",
+      "Chemistry": "competent",
+      "Microbiology": "training"
+    },
+    "fte": 1.0,
+    "employment": "FT",
+    "shift_pref": "Evenings",
+    "weekend_group": "A",
+    "holiday_group": "2",
+    "hire_date": "2013-11-30",
+    "seniority_rank": 10,
+    "pto_balance_hours": 151,
     "holiday_off_wishlist": [
       "Thanksgiving Day",
       "New Year's Day"
     ],
     "worked_last_year": [
-      "Thanksgiving Day",
-      "New Year's Day"
+      "Christmas Day 2025",
+      "Independence Day 2026"
     ],
     "max_consecutive_shifts": 5,
-    "on_call_eligible": false,
-    "constraints": []
+    "shifts_per_week": 5,
+    "on_call_eligible": true,
+    "constraints": [
+      {
+        "label": "No Friday evenings/nights (observance)",
+        "weekday": 4,
+        "shifts": [
+          "E",
+          "N"
+        ],
+        "week_parity": null
+      }
+    ]
   },
   {
     "id": "T24",
     "name": "Avery Becker",
-    "credential": "MLS(ASCP)SBB",
+    "credential": "MLS(ASCP)",
     "home_dept": "Blood Bank",
     "competencies": {
       "Blood Bank": "primary",
       "Hematology": "competent"
     },
-    "fte": 0.9,
+    "fte": 1.0,
     "employment": "FT",
-    "shift_pref": "Nights",
+    "shift_pref": "Days",
     "weekend_group": "A",
-    "holiday_group": "2",
-    "hire_date": "2018-09-19",
-    "seniority_rank": 21,
-    "pto_balance_hours": 94,
+    "holiday_group": "1",
+    "hire_date": "2019-01-06",
+    "seniority_rank": 17,
+    "pto_balance_hours": 96,
     "holiday_off_wishlist": [
-      "Thanksgiving Day",
-      "New Year's Day"
+      "New Year's Day",
+      "Christmas Day"
     ],
     "worked_last_year": [
-      "Christmas Day",
-      "Independence Day"
+      "Thanksgiving Day 2025",
+      "New Year's Day 2026"
     ],
-    "max_consecutive_shifts": 4,
-    "on_call_eligible": true,
+    "max_consecutive_shifts": 5,
+    "shifts_per_week": 5,
+    "on_call_eligible": false,
     "constraints": [
-      "Carpools: pair with same-shift tech"
+      {
+        "label": "No Tuesday day shifts (class schedule)",
+        "weekday": 1,
+        "shifts": [
+          "D"
+        ],
+        "week_parity": null
+      },
+      {
+        "label": "No Thursday evenings (second job)",
+        "weekday": 3,
+        "shifts": [
+          "E"
+        ],
+        "week_parity": null
+      }
     ]
   },
   {
     "id": "T25",
     "name": "Lucas Kowalski",
-    "credential": "MLS(ASCP)SBB",
+    "credential": "MLS(ASCP)",
     "home_dept": "Blood Bank",
     "competencies": {
       "Blood Bank": "primary",
-      "Hematology": "training",
       "Chemistry": "competent"
     },
-    "fte": 0.6,
-    "employment": "PT",
+    "fte": 1.0,
+    "employment": "FT",
     "shift_pref": "Nights",
     "weekend_group": "A",
-    "holiday_group": "1",
-    "hire_date": "2014-10-26",
-    "seniority_rank": 15,
-    "pto_balance_hours": 165,
+    "holiday_group": "2",
+    "hire_date": "2013-04-25",
+    "seniority_rank": 9,
+    "pto_balance_hours": 136,
     "holiday_off_wishlist": [
-      "Christmas Day",
-      "New Year's Day"
+      "New Year's Day",
+      "Thanksgiving Day"
     ],
     "worked_last_year": [
-      "Thanksgiving Day",
-      "New Year's Day"
+      "Christmas Day 2025",
+      "Independence Day 2026"
     ],
-    "max_consecutive_shifts": 4,
-    "on_call_eligible": false,
+    "max_consecutive_shifts": 5,
+    "shifts_per_week": 5,
+    "on_call_eligible": true,
     "constraints": []
   },
   {
@@ -758,54 +884,56 @@
     "competencies": {
       "Blood Bank": "primary"
     },
-    "fte": 0.6,
-    "employment": "PT",
-    "shift_pref": "Rotating",
-    "weekend_group": "A",
-    "holiday_group": "2",
-    "hire_date": "2014-08-14",
-    "seniority_rank": 13,
-    "pto_balance_hours": 142,
+    "fte": 1.0,
+    "employment": "FT",
+    "shift_pref": "Nights",
+    "weekend_group": "B",
+    "holiday_group": "1",
+    "hire_date": "2007-10-25",
+    "seniority_rank": 7,
+    "pto_balance_hours": 121,
     "holiday_off_wishlist": [
-      "Independence Day",
-      "Thanksgiving Day"
-    ],
-    "worked_last_year": [
-      "Christmas Day",
+      "New Year's Day",
       "Independence Day"
     ],
-    "max_consecutive_shifts": 4,
+    "worked_last_year": [
+      "Thanksgiving Day 2025",
+      "New Year's Day 2026"
+    ],
+    "max_consecutive_shifts": 5,
+    "shifts_per_week": 5,
     "on_call_eligible": false,
     "constraints": []
   },
   {
     "id": "T27",
     "name": "Nadia Larsen",
-    "credential": "MLS(ASCP)",
+    "credential": "MLT(ASCP)",
     "home_dept": "Float",
     "competencies": {
-      "Hematology": "competent",
-      "Chemistry": "primary",
+      "Hematology": "primary",
+      "Chemistry": "competent",
       "Microbiology": "competent",
       "Blood Bank": "competent"
     },
     "fte": 0.0,
     "employment": "PRN",
     "shift_pref": "Days",
-    "weekend_group": "A",
-    "holiday_group": "1",
-    "hire_date": "2003-12-02",
-    "seniority_rank": 2,
-    "pto_balance_hours": 168,
+    "weekend_group": "B",
+    "holiday_group": "2",
+    "hire_date": "2022-03-20",
+    "seniority_rank": 23,
+    "pto_balance_hours": 59,
     "holiday_off_wishlist": [
-      "Thanksgiving Day",
+      "New Year's Day",
       "Christmas Day"
     ],
     "worked_last_year": [
-      "Thanksgiving Day",
-      "New Year's Day"
+      "Christmas Day 2025",
+      "Independence Day 2026"
     ],
-    "max_consecutive_shifts": 4,
+    "max_consecutive_shifts": 6,
+    "shifts_per_week": 2,
     "on_call_eligible": false,
     "constraints": []
   },
@@ -824,19 +952,20 @@
     "employment": "PRN",
     "shift_pref": "Days",
     "weekend_group": "A",
-    "holiday_group": "2",
-    "hire_date": "2004-07-08",
-    "seniority_rank": 3,
-    "pto_balance_hours": 148,
+    "holiday_group": "1",
+    "hire_date": "2018-07-07",
+    "seniority_rank": 16,
+    "pto_balance_hours": 112,
     "holiday_off_wishlist": [
       "Thanksgiving Day",
-      "New Year's Day"
-    ],
-    "worked_last_year": [
-      "Christmas Day",
       "Independence Day"
     ],
-    "max_consecutive_shifts": 4,
+    "worked_last_year": [
+      "Thanksgiving Day 2025",
+      "New Year's Day 2026"
+    ],
+    "max_consecutive_shifts": 6,
+    "shifts_per_week": 2,
     "on_call_eligible": false,
     "constraints": []
   }
