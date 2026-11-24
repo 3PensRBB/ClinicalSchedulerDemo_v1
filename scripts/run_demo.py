@@ -39,6 +39,8 @@ def build(seed: int = 42) -> tuple[World, Schedule, dict]:
     t3 = time.time()
     sched.log.append({"action": "generate", "horizon": [world.start.isoformat(), world.end.isoformat()]})
     sched.save(SCHEDULE)
+    from scripts.export_static import export
+    export(world, sched)
     timing = {"data_s": round(t1 - t0, 1), "pto_s": round(t2 - t1, 1), "solve_s": round(t3 - t2, 1)}
     print("Timing:", timing)
     print("Summary:", summary(world, sched))

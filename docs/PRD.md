@@ -5,7 +5,7 @@
 | **Status** | v1.1. Decisions locked and demo built (M0–M4 done) |
 | **Date** | 2026-11-24 |
 | **Planning horizon in demo** | Mon 2026-11-30 → Sun 2028-01-02 (13 months, whole weeks) |
-| **Run it** | `python3 scripts/run_demo.py all` builds everything; `streamlit run app/app.py` opens the UI |
+| **Run it** | Deployed on Vercel (FastAPI `app.py` + static `public/`); locally `uvicorn app:app`. `python3 scripts/run_demo.py all` rebuilds the data |
 | **Synthetic data** | `sim/generate_roster.py` → `data/` (all people fictional) |
 
 ---
@@ -92,7 +92,7 @@ Extra staff allowed above the minimum: +2 on Day, +1 on Evening or Night. **Dema
 |---|---|
 | 70 | Working an off-group weekend (A works weekends in even weeks, B in odd weeks) |
 | 60 | FT/PT scheduled below their FTE for the pay period (PTO counts toward hours) |
-| 45 (×2 for major) | Working a holiday your group has off |
+| 150 (400 for a major holiday) | Working a holiday your group has off |
 | 35 | Breaking a personal limit (class day, childcare, custody week, second job…) |
 | 25 | Fixed-shift tech placed on another shift |
 | 20 | Using a PRN float |
@@ -200,15 +200,18 @@ Baselines are assumptions to confirm with the real scheduler.
 ## 11. Architecture (as built)
 
 ```
-sim/generate_roster.py ──► data/*.json ──► engine/world.py (model, calendar, pay periods)
+sim/generate_roster.py ──► data/*.json ──► engine/ (world, solver, pto, validate, tools)
                                               │
-     engine/pto.py (seniority decisions) ◄────┤
-     engine/solver.py (CP-SAT: generate / repair / feasibility)
-     engine/validate.py (hard rules, metrics)   engine/tools.py (call-out, swap, PTO, resign)
+            scripts/run_demo.py ──► data/schedule.json + public/data/bundle.json (published schedule)
                                               │
-            scripts/run_demo.py (S1–S6 → docs/demo_results.md)    app/app.py (Streamlit UI)
+   Browser: public/ (HTML/JS, CDN) ── delta of edits (localStorage) ──► app.py FastAPI /api/* (stateless)
+                                              ◄── patch ── engine/service.py rebuilds published + delta
 ```
-Python 3.11+, `ortools`, `streamlit`, `pandas` and `altair`. Tests: `pytest tests/` (8 tests: holiday dates, determinism, no violations, PTO caps, holiday rotation, call-out, swap, repair).
+
+- **Hosting:** Vercel FastAPI preset. `app.py` at the repo root is the function. `public/` is served from the CDN. `maxDuration` is 120 s.
+- **Stateless API:** each browser keeps its own edits as a delta and sends it with every call. Nothing is stored server-side, so every viewer starts from the published schedule.
+- **Timing on 1 vCPU:** rule check under 0.1 s, call-out and swap under 0.1 s, late PTO with repair about 1 s, resignation re-plan of 43 weeks about 20 s. Repair mode starts the search from the published schedule (solver hints).
+- Python 3.12, `fastapi` and `ortools` (about 235 MB installed). Tests: `pytest tests/` (14 tests covering the engine and the API). The original Streamlit UI remains for local use in `streamlit_ui/`.
 
 ## 12. Milestones
 - **M0 ✅** PRD and synthetic data generator
@@ -216,6 +219,7 @@ Python 3.11+, `ortools`, `streamlit`, `pandas` and `altair`. Tests: `pytest test
 - **M2 ✅** Soft rules, 13-month rolling horizon, holiday rotation, seniority PTO
 - **M3 ✅** UI: dashboard, schedule grid, holiday planner, fairness, profiles, audit log
 - **M4 ✅** PTO preview and date suggestions, replacement finder, repair mode, staff change, swap validator
+- **M4.1 ✅** Vercel deployment: FastAPI API plus static web front end (replaces Streamlit for hosting)
 - **M5 (next)** Natural-language command bar, profile editing in the UI, CSV/PDF export by bench and by person, staff self-service
 
 ## 13. Open questions (for later tuning)

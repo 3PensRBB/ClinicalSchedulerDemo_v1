@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clinical Lab Scheduler</title>
+  <meta name="description" content="Schedules 28 clinical lab technologists across Hematology, Chemistry, Microbiology and Blood Bank on three 8-hour shifts.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600&display=swap">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">Rx</span>
+      <div>
+        <h1>Clinical Lab Scheduler</h1>
+        <p class="sub">Hematology · Chemistry · Microbiology · Blood Bank — 3 × 8 h shifts</p>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <span id="horizon" class="mono muted"></span>
+      <span id="changes-pill" class="pill" hidden></span>
+      <button id="reset" class="btn ghost" hidden>Discard my changes</button>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="Sections">
+    <button role="tab" data-tab="dashboard">Dashboard</button>
+    <button role="tab" data-tab="schedule">Schedule</button>
+    <button role="tab" data-tab="holidays">Holidays</button>
+    <button role="tab" data-tab="pto">PTO requests</button>
+    <button role="tab" data-tab="callout">Call-out</button>
+    <button role="tab" data-tab="swap">Swap</button>
+    <button role="tab" data-tab="staff">Staff change</button>
+    <button role="tab" data-tab="fairness">Fairness</button>
+    <button role="tab" data-tab="profiles">Profiles</button>
+    <button role="tab" data-tab="log">Change log</button>
+  </nav>
+
+  <main id="main">
+    <p class="loading">Loading the published schedule…</p>
+  </main>
+
+  <footer class="foot muted">
+    Demo with synthetic, fictional staff. Your edits are kept in this browser only until you discard them.
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>

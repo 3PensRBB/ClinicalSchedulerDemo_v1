@@ -10,6 +10,7 @@ consecutive-day and weekly-hour rules hold across window boundaries.
 
 from __future__ import annotations
 
+import os
 import time
 from collections import defaultdict
 from dataclasses import dataclass
@@ -20,12 +21,16 @@ from ortools.sat.python import cp_model
 from .world import (BENCHES, FORBIDDEN_TURNS, SHIFT_CODES, SHIFT_PREF_CODE, Schedule, World, daterange,
                     period_days, period_start, week_start)
 
+# CP-SAT's 8-worker portfolio (diverse search strategies) proves optimality far faster than fewer
+# workers, even on 1-2 vCPUs, so keep 8 unless overridden.
+WORKERS = int(os.environ.get("SOLVER_WORKERS", "8"))
+
 # Soft-constraint weights (penalty per occurrence). Shortage is effectively hard.
 W = {
     "shortage": 10_000,
     "weekend_off_group": 70,  # works an off-group weekend (outranks hours)
     "under_hours": 60,        # FT/PT scheduled below FTE target for the week
-    "holiday_off_group": 45,  # works a holiday their group has off (x2 for major)
+    "holiday_off_group": 150,  # works a holiday their group has off (policy; ~x2.7 for major)
     "personal": 35,           # violates a personal availability limit
     "shift_pref": 25,         # fixed-shift tech placed on another shift
     "prn": 20,                # uses a PRN float
@@ -46,7 +51,7 @@ class SolveResult:
 
 
 def solve_window(world: World, d0: date, d1: date, sched: Schedule, *, mode: str = "full",
-                 previous: dict | None = None, time_limit: float = 8.0, workers: int = 8) -> SolveResult:
+                 previous: dict | None = None, time_limit: float = 8.0, workers: int = WORKERS) -> SolveResult:
     """mode: 'full' (all soft rules) | 'feasibility' (hard rules, holiday groups enforced)."""
     t0 = time.time()
     m = cp_model.CpModel()
@@ -179,7 +184,7 @@ def solve_window(world: World, d0: date, d1: date, sched: Schedule, *, mode: str
                     and t["employment"] != "PRN":
                 cost += W["weekend_off_group"]
             if not world.holiday_on(t, d):
-                cost += W["holiday_off_group"] * (2 if world.holidays[d]["major"] else 1)
+                cost += W["holiday_off_group"] * (8 if world.holidays[d]["major"] else 3) // 3
             cost += W["personal"] * len(world.personal_conflicts(t, d, s))
             if previous is not None:
                 if previous.get((tid, d)) == (s, b):
@@ -189,6 +194,9 @@ def solve_window(world: World, d0: date, d1: date, sched: Schedule, *, mode: str
             if cost:
                 obj.append((cost, v))
 
+    if previous is not None:  # repair mode: start the search from the published schedule
+        for (tid, d, s, b), v in x.items():
+            m.AddHint(v, previous.get((tid, d)) == (s, b))
     m.Minimize(sum(c * v for c, v in obj))
     solver = cp_model.CpSolver()
     solver.parameters.max_time_in_seconds = time_limit

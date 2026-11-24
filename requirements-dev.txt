@@ -1,0 +1,8 @@
+# Local development: tests, local server, and the optional Streamlit UI.
+-r requirements.txt
+uvicorn>=0.30
+httpx>=0.27
+pytest>=8.0
+streamlit>=1.40
+pandas>=2.2
+altair>=5.0

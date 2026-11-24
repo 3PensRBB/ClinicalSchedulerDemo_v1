@@ -156,7 +156,8 @@ def suggest_dates(world: World, sched: Schedule, tid: str, d0: date, d1: date, w
     return out[:3]
 
 
-def resign(world: World, sched: Schedule, tid: str, effective: date, *, chunk_weeks: int = 4) -> dict:
+def resign(world: World, sched: Schedule, tid: str, effective: date, *, chunk_weeks: int = 4,
+           time_limit: float = 5.0) -> dict:
     """Last day worked is effective - 1. Re-solve the rest of the horizon in chunks,
     keeping everyone else's published shifts wherever possible."""
     t = world.by_id[tid]
@@ -168,10 +169,18 @@ def resign(world: World, sched: Schedule, tid: str, effective: date, *, chunk_we
     diff, secs, d = [], 0.0, effective
     while d <= world.end:
         e = min(world.end, d + timedelta(weeks=chunk_weeks) - timedelta(days=1))
-        r, part = repair_window(world, sched, d, e, reason=f"{tid} resigned effective {effective}")
+        r, part = repair_window(world, sched, d, e, time_limit=time_limit,
+                                reason=f"{tid} resigned effective {effective}")
         diff += part
         secs += r.seconds
         d = e + timedelta(days=1)
+    # Safety net (as in generate_schedule): re-solve +/- 2 weeks around any gap left.
+    from .validate import violations
+    for v in [v for v in violations(world, sched, effective) if v["rule"] == "coverage"]:
+        r, part = repair_window(world, sched, v["date"] - timedelta(days=14), v["date"] + timedelta(days=14),
+                                time_limit=max(time_limit, 5.0), reason=f"auto-repair gap {v['date']}")
+        diff += part
+        secs += r.seconds
     others = [x for x in diff if x["tech"] != tid]
     return {"tech": tid, "effective": effective.isoformat(), "shifts_removed": len(removed),
             "changes_to_others": len(others), "changes": others, "solve_seconds": round(secs, 1)}
