@@ -1,0 +1,60 @@
+{
+  "shifts": {
+    "D": {
+      "name": "Day",
+      "start": "07:00",
+      "end": "19:30",
+      "paid_hours": 12
+    },
+    "N": {
+      "name": "Night",
+      "start": "19:00",
+      "end": "07:30",
+      "paid_hours": 12
+    }
+  },
+  "minimums": {
+    "weekday": {
+      "D": {
+        "Hematology": 2,
+        "Chemistry": 2,
+        "Microbiology": 2,
+        "Blood Bank": 1
+      },
+      "N": {
+        "Hematology": 1,
+        "Chemistry": 1,
+        "Microbiology": 0,
+        "Blood Bank": 1
+      }
+    },
+    "weekend": {
+      "D": {
+        "Hematology": 1,
+        "Chemistry": 1,
+        "Microbiology": 1,
+        "Blood Bank": 1
+      },
+      "N": {
+        "Hematology": 1,
+        "Chemistry": 1,
+        "Microbiology": 0,
+        "Blood Bank": 1
+      }
+    },
+    "holiday": {
+      "D": {
+        "Hematology": 1,
+        "Chemistry": 1,
+        "Microbiology": 1,
+        "Blood Bank": 1
+      },
+      "N": {
+        "Hematology": 1,
+        "Chemistry": 1,
+        "Microbiology": 0,
+        "Blood Bank": 1
+      }
+    }
+  }
+}

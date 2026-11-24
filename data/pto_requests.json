@@ -1,0 +1,992 @@
+[
+  {
+    "id": "R019",
+    "tech_id": "T05",
+    "start": "2026-12-03",
+    "end": "2026-12-03",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2026-07-12"
+  },
+  {
+    "id": "R050",
+    "tech_id": "T11",
+    "start": "2026-12-10",
+    "end": "2026-12-10",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2026-08-07"
+  },
+  {
+    "id": "R014",
+    "tech_id": "T04",
+    "start": "2026-12-13",
+    "end": "2026-12-13",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2026-11-08"
+  },
+  {
+    "id": "R043",
+    "tech_id": "T10",
+    "start": "2026-12-14",
+    "end": "2026-12-14",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2026-07-21"
+  },
+  {
+    "id": "R021",
+    "tech_id": "T06",
+    "start": "2026-12-22",
+    "end": "2026-12-24",
+    "type": "holiday-adjacent",
+    "status": "pending",
+    "submitted": "2026-09-12"
+  },
+  {
+    "id": "R026",
+    "tech_id": "T07",
+    "start": "2026-12-22",
+    "end": "2026-12-27",
+    "type": "holiday-adjacent",
+    "status": "pending",
+    "submitted": "2026-10-20"
+  },
+  {
+    "id": "R036",
+    "tech_id": "T09",
+    "start": "2026-12-22",
+    "end": "2026-12-27",
+    "type": "holiday-adjacent",
+    "status": "pending",
+    "submitted": "2026-11-22"
+  },
+  {
+    "id": "R045",
+    "tech_id": "T11",
+    "start": "2026-12-22",
+    "end": "2026-12-25",
+    "type": "holiday-adjacent",
+    "status": "pending",
+    "submitted": "2026-08-04"
+  },
+  {
+    "id": "R032",
+    "tech_id": "T08",
+    "start": "2026-12-24",
+    "end": "2026-12-29",
+    "type": "holiday-adjacent",
+    "status": "pending",
+    "submitted": "2026-08-28"
+  },
+  {
+    "id": "R082",
+    "tech_id": "T20",
+    "start": "2026-12-24",
+    "end": "2026-12-28",
+    "type": "holiday-adjacent",
+    "status": "pending",
+    "submitted": "2026-11-09"
+  },
+  {
+    "id": "R052",
+    "tech_id": "T12",
+    "start": "2026-12-25",
+    "end": "2026-12-27",
+    "type": "holiday-adjacent",
+    "status": "pending",
+    "submitted": "2026-10-25"
+  },
+  {
+    "id": "R064",
+    "tech_id": "T15",
+    "start": "2026-12-29",
+    "end": "2027-01-03",
+    "type": "holiday-adjacent",
+    "status": "pending",
+    "submitted": "2026-11-16"
+  },
+  {
+    "id": "R033",
+    "tech_id": "T08",
+    "start": "2026-12-31",
+    "end": "2027-01-02",
+    "type": "holiday-adjacent",
+    "status": "pending",
+    "submitted": "2026-10-09"
+  },
+  {
+    "id": "R095",
+    "tech_id": "T23",
+    "start": "2026-12-31",
+    "end": "2027-01-02",
+    "type": "holiday-adjacent",
+    "status": "pending",
+    "submitted": "2026-09-21"
+  },
+  {
+    "id": "R099",
+    "tech_id": "T24",
+    "start": "2027-01-01",
+    "end": "2027-01-04",
+    "type": "holiday-adjacent",
+    "status": "pending",
+    "submitted": "2026-09-13"
+  },
+  {
+    "id": "R059",
+    "tech_id": "T13",
+    "start": "2027-01-08",
+    "end": "2027-01-08",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2026-09-25"
+  },
+  {
+    "id": "R029",
+    "tech_id": "T07",
+    "start": "2027-01-09",
+    "end": "2027-01-09",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2026-09-10"
+  },
+  {
+    "id": "R049",
+    "tech_id": "T11",
+    "start": "2027-01-11",
+    "end": "2027-01-11",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2026-10-13"
+  },
+  {
+    "id": "R089",
+    "tech_id": "T21",
+    "start": "2027-02-03",
+    "end": "2027-02-03",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2026-10-15"
+  },
+  {
+    "id": "R094",
+    "tech_id": "T22",
+    "start": "2027-02-16",
+    "end": "2027-02-16",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2026-12-29"
+  },
+  {
+    "id": "R056",
+    "tech_id": "T12",
+    "start": "2027-02-24",
+    "end": "2027-02-24",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2026-11-09"
+  },
+  {
+    "id": "R005",
+    "tech_id": "T02",
+    "start": "2027-02-28",
+    "end": "2027-02-28",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2026-11-12"
+  },
+  {
+    "id": "R013",
+    "tech_id": "T04",
+    "start": "2027-03-12",
+    "end": "2027-03-12",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-01-23"
+  },
+  {
+    "id": "R105",
+    "tech_id": "T25",
+    "start": "2027-03-12",
+    "end": "2027-03-12",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2026-12-18"
+  },
+  {
+    "id": "R009",
+    "tech_id": "T03",
+    "start": "2027-03-20",
+    "end": "2027-03-20",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2026-12-15"
+  },
+  {
+    "id": "R040",
+    "tech_id": "T09",
+    "start": "2027-03-23",
+    "end": "2027-03-23",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2026-12-21"
+  },
+  {
+    "id": "R017",
+    "tech_id": "T05",
+    "start": "2027-04-04",
+    "end": "2027-04-04",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-02-15"
+  },
+  {
+    "id": "R072",
+    "tech_id": "T17",
+    "start": "2027-04-12",
+    "end": "2027-04-12",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-01-29"
+  },
+  {
+    "id": "R028",
+    "tech_id": "T07",
+    "start": "2027-04-20",
+    "end": "2027-04-20",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-01-24"
+  },
+  {
+    "id": "R083",
+    "tech_id": "T20",
+    "start": "2027-04-21",
+    "end": "2027-04-21",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2026-12-20"
+  },
+  {
+    "id": "R047",
+    "tech_id": "T11",
+    "start": "2027-04-22",
+    "end": "2027-04-22",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2026-12-17"
+  },
+  {
+    "id": "R070",
+    "tech_id": "T16",
+    "start": "2027-04-22",
+    "end": "2027-04-22",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2026-12-01"
+  },
+  {
+    "id": "R073",
+    "tech_id": "T17",
+    "start": "2027-04-23",
+    "end": "2027-04-23",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2026-12-02"
+  },
+  {
+    "id": "R086",
+    "tech_id": "T20",
+    "start": "2027-04-24",
+    "end": "2027-04-24",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-03-13"
+  },
+  {
+    "id": "R030",
+    "tech_id": "T07",
+    "start": "2027-04-26",
+    "end": "2027-04-26",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-02-25"
+  },
+  {
+    "id": "R110",
+    "tech_id": "T26",
+    "start": "2027-05-05",
+    "end": "2027-05-05",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-01-06"
+  },
+  {
+    "id": "R062",
+    "tech_id": "T14",
+    "start": "2027-05-27",
+    "end": "2027-05-27",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-02-18"
+  },
+  {
+    "id": "R080",
+    "tech_id": "T19",
+    "start": "2027-05-30",
+    "end": "2027-05-30",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-01-31"
+  },
+  {
+    "id": "R077",
+    "tech_id": "T19",
+    "start": "2027-06-03",
+    "end": "2027-06-09",
+    "type": "vacation",
+    "status": "pending",
+    "submitted": "2027-03-28"
+  },
+  {
+    "id": "R058",
+    "tech_id": "T13",
+    "start": "2027-06-10",
+    "end": "2027-06-16",
+    "type": "vacation",
+    "status": "pending",
+    "submitted": "2027-04-28"
+  },
+  {
+    "id": "R020",
+    "tech_id": "T06",
+    "start": "2027-06-14",
+    "end": "2027-06-20",
+    "type": "vacation",
+    "status": "pending",
+    "submitted": "2027-04-17"
+  },
+  {
+    "id": "R091",
+    "tech_id": "T22",
+    "start": "2027-06-19",
+    "end": "2027-06-25",
+    "type": "vacation",
+    "status": "pending",
+    "submitted": "2027-04-14"
+  },
+  {
+    "id": "R106",
+    "tech_id": "T26",
+    "start": "2027-06-21",
+    "end": "2027-06-27",
+    "type": "vacation",
+    "status": "pending",
+    "submitted": "2027-05-03"
+  },
+  {
+    "id": "R061",
+    "tech_id": "T14",
+    "start": "2027-06-23",
+    "end": "2027-06-29",
+    "type": "vacation",
+    "status": "pending",
+    "submitted": "2027-02-15"
+  },
+  {
+    "id": "R007",
+    "tech_id": "T02",
+    "start": "2027-06-26",
+    "end": "2027-06-26",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-03-18"
+  },
+  {
+    "id": "R101",
+    "tech_id": "T24",
+    "start": "2027-06-28",
+    "end": "2027-06-28",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-04-02"
+  },
+  {
+    "id": "R046",
+    "tech_id": "T11",
+    "start": "2027-07-01",
+    "end": "2027-07-05",
+    "type": "holiday-adjacent",
+    "status": "pending",
+    "submitted": "2027-05-05"
+  },
+  {
+    "id": "R053",
+    "tech_id": "T12",
+    "start": "2027-07-03",
+    "end": "2027-07-06",
+    "type": "holiday-adjacent",
+    "status": "pending",
+    "submitted": "2027-05-18"
+  },
+  {
+    "id": "R063",
+    "tech_id": "T15",
+    "start": "2027-07-03",
+    "end": "2027-07-09",
+    "type": "vacation",
+    "status": "pending",
+    "submitted": "2027-03-31"
+  },
+  {
+    "id": "R107",
+    "tech_id": "T26",
+    "start": "2027-07-03",
+    "end": "2027-07-07",
+    "type": "holiday-adjacent",
+    "status": "pending",
+    "submitted": "2027-03-19"
+  },
+  {
+    "id": "R034",
+    "tech_id": "T08",
+    "start": "2027-07-04",
+    "end": "2027-07-04",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-04-16"
+  },
+  {
+    "id": "R048",
+    "tech_id": "T11",
+    "start": "2027-07-04",
+    "end": "2027-07-04",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-05-03"
+  },
+  {
+    "id": "R078",
+    "tech_id": "T19",
+    "start": "2027-07-06",
+    "end": "2027-07-06",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-03-03"
+  },
+  {
+    "id": "R051",
+    "tech_id": "T12",
+    "start": "2027-07-08",
+    "end": "2027-07-14",
+    "type": "vacation",
+    "status": "pending",
+    "submitted": "2027-03-17"
+  },
+  {
+    "id": "R081",
+    "tech_id": "T20",
+    "start": "2027-07-09",
+    "end": "2027-07-15",
+    "type": "vacation",
+    "status": "pending",
+    "submitted": "2027-05-11"
+  },
+  {
+    "id": "R102",
+    "tech_id": "T25",
+    "start": "2027-07-10",
+    "end": "2027-07-16",
+    "type": "vacation",
+    "status": "pending",
+    "submitted": "2027-06-06"
+  },
+  {
+    "id": "R066",
+    "tech_id": "T15",
+    "start": "2027-07-11",
+    "end": "2027-07-11",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-05-20"
+  },
+  {
+    "id": "R108",
+    "tech_id": "T26",
+    "start": "2027-07-13",
+    "end": "2027-07-13",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-05-29"
+  },
+  {
+    "id": "R008",
+    "tech_id": "T03",
+    "start": "2027-07-15",
+    "end": "2027-07-15",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-03-21"
+  },
+  {
+    "id": "R023",
+    "tech_id": "T06",
+    "start": "2027-07-15",
+    "end": "2027-07-15",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-03-29"
+  },
+  {
+    "id": "R041",
+    "tech_id": "T10",
+    "start": "2027-07-16",
+    "end": "2027-07-22",
+    "type": "vacation",
+    "status": "pending",
+    "submitted": "2027-06-13"
+  },
+  {
+    "id": "R012",
+    "tech_id": "T04",
+    "start": "2027-07-17",
+    "end": "2027-07-23",
+    "type": "vacation",
+    "status": "pending",
+    "submitted": "2027-03-25"
+  },
+  {
+    "id": "R031",
+    "tech_id": "T08",
+    "start": "2027-07-18",
+    "end": "2027-07-24",
+    "type": "vacation",
+    "status": "pending",
+    "submitted": "2027-06-08"
+  },
+  {
+    "id": "R071",
+    "tech_id": "T17",
+    "start": "2027-07-19",
+    "end": "2027-07-25",
+    "type": "vacation",
+    "status": "pending",
+    "submitted": "2027-04-02"
+  },
+  {
+    "id": "R097",
+    "tech_id": "T23",
+    "start": "2027-07-19",
+    "end": "2027-07-19",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-02-23"
+  },
+  {
+    "id": "R015",
+    "tech_id": "T05",
+    "start": "2027-07-20",
+    "end": "2027-07-26",
+    "type": "vacation",
+    "status": "pending",
+    "submitted": "2027-03-04"
+  },
+  {
+    "id": "R003",
+    "tech_id": "T02",
+    "start": "2027-07-22",
+    "end": "2027-07-28",
+    "type": "vacation",
+    "status": "pending",
+    "submitted": "2027-05-01"
+  },
+  {
+    "id": "R109",
+    "tech_id": "T26",
+    "start": "2027-07-28",
+    "end": "2027-07-28",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-04-01"
+  },
+  {
+    "id": "R010",
+    "tech_id": "T03",
+    "start": "2027-07-31",
+    "end": "2027-07-31",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-03-22"
+  },
+  {
+    "id": "R001",
+    "tech_id": "T01",
+    "start": "2027-08-07",
+    "end": "2027-08-13",
+    "type": "vacation",
+    "status": "pending",
+    "submitted": "2027-05-23"
+  },
+  {
+    "id": "R016",
+    "tech_id": "T05",
+    "start": "2027-08-11",
+    "end": "2027-08-11",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-05-22"
+  },
+  {
+    "id": "R098",
+    "tech_id": "T24",
+    "start": "2027-08-14",
+    "end": "2027-08-20",
+    "type": "vacation",
+    "status": "pending",
+    "submitted": "2027-06-06"
+  },
+  {
+    "id": "R025",
+    "tech_id": "T07",
+    "start": "2027-08-15",
+    "end": "2027-08-21",
+    "type": "vacation",
+    "status": "pending",
+    "submitted": "2027-03-24"
+  },
+  {
+    "id": "R069",
+    "tech_id": "T16",
+    "start": "2027-08-16",
+    "end": "2027-08-22",
+    "type": "vacation",
+    "status": "pending",
+    "submitted": "2027-05-19"
+  },
+  {
+    "id": "R044",
+    "tech_id": "T11",
+    "start": "2027-08-22",
+    "end": "2027-08-28",
+    "type": "vacation",
+    "status": "pending",
+    "submitted": "2027-07-20"
+  },
+  {
+    "id": "R096",
+    "tech_id": "T23",
+    "start": "2027-08-25",
+    "end": "2027-08-25",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-06-08"
+  },
+  {
+    "id": "R085",
+    "tech_id": "T20",
+    "start": "2027-08-26",
+    "end": "2027-08-26",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-05-12"
+  },
+  {
+    "id": "R037",
+    "tech_id": "T09",
+    "start": "2027-09-02",
+    "end": "2027-09-02",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-04-30"
+  },
+  {
+    "id": "R079",
+    "tech_id": "T19",
+    "start": "2027-09-08",
+    "end": "2027-09-08",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-06-28"
+  },
+  {
+    "id": "R006",
+    "tech_id": "T02",
+    "start": "2027-09-18",
+    "end": "2027-09-18",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-07-12"
+  },
+  {
+    "id": "R084",
+    "tech_id": "T20",
+    "start": "2027-09-28",
+    "end": "2027-09-28",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-05-24"
+  },
+  {
+    "id": "R074",
+    "tech_id": "T17",
+    "start": "2027-10-02",
+    "end": "2027-10-02",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-06-05"
+  },
+  {
+    "id": "R039",
+    "tech_id": "T09",
+    "start": "2027-10-05",
+    "end": "2027-10-05",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-05-14"
+  },
+  {
+    "id": "R057",
+    "tech_id": "T12",
+    "start": "2027-10-07",
+    "end": "2027-10-07",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-06-04"
+  },
+  {
+    "id": "R042",
+    "tech_id": "T10",
+    "start": "2027-10-15",
+    "end": "2027-10-15",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-07-09"
+  },
+  {
+    "id": "R027",
+    "tech_id": "T07",
+    "start": "2027-10-17",
+    "end": "2027-10-17",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-08-18"
+  },
+  {
+    "id": "R103",
+    "tech_id": "T25",
+    "start": "2027-10-17",
+    "end": "2027-10-17",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-07-04"
+  },
+  {
+    "id": "R076",
+    "tech_id": "T18",
+    "start": "2027-10-27",
+    "end": "2027-10-27",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-06-28"
+  },
+  {
+    "id": "R068",
+    "tech_id": "T15",
+    "start": "2027-10-30",
+    "end": "2027-10-30",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-08-27"
+  },
+  {
+    "id": "R018",
+    "tech_id": "T05",
+    "start": "2027-11-01",
+    "end": "2027-11-01",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-07-06"
+  },
+  {
+    "id": "R104",
+    "tech_id": "T25",
+    "start": "2027-11-04",
+    "end": "2027-11-04",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-06-25"
+  },
+  {
+    "id": "R004",
+    "tech_id": "T02",
+    "start": "2027-11-12",
+    "end": "2027-11-12",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-07-10"
+  },
+  {
+    "id": "R060",
+    "tech_id": "T13",
+    "start": "2027-11-19",
+    "end": "2027-11-19",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-07-06"
+  },
+  {
+    "id": "R075",
+    "tech_id": "T18",
+    "start": "2027-11-19",
+    "end": "2027-11-19",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-08-21"
+  },
+  {
+    "id": "R092",
+    "tech_id": "T22",
+    "start": "2027-11-22",
+    "end": "2027-11-24",
+    "type": "holiday-adjacent",
+    "status": "pending",
+    "submitted": "2027-07-10"
+  },
+  {
+    "id": "R088",
+    "tech_id": "T21",
+    "start": "2027-11-23",
+    "end": "2027-11-23",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-06-26"
+  },
+  {
+    "id": "R065",
+    "tech_id": "T15",
+    "start": "2027-11-28",
+    "end": "2027-11-28",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-10-10"
+  },
+  {
+    "id": "R002",
+    "tech_id": "T01",
+    "start": "2027-12-04",
+    "end": "2027-12-04",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-07-12"
+  },
+  {
+    "id": "R024",
+    "tech_id": "T06",
+    "start": "2027-12-04",
+    "end": "2027-12-04",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-07-13"
+  },
+  {
+    "id": "R067",
+    "tech_id": "T15",
+    "start": "2027-12-11",
+    "end": "2027-12-11",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-09-06"
+  },
+  {
+    "id": "R011",
+    "tech_id": "T03",
+    "start": "2027-12-12",
+    "end": "2027-12-12",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-10-22"
+  },
+  {
+    "id": "R038",
+    "tech_id": "T09",
+    "start": "2027-12-12",
+    "end": "2027-12-12",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-09-04"
+  },
+  {
+    "id": "R090",
+    "tech_id": "T21",
+    "start": "2027-12-21",
+    "end": "2027-12-21",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-09-20"
+  },
+  {
+    "id": "R022",
+    "tech_id": "T06",
+    "start": "2027-12-22",
+    "end": "2027-12-22",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-07-31"
+  },
+  {
+    "id": "R093",
+    "tech_id": "T22",
+    "start": "2027-12-22",
+    "end": "2027-12-24",
+    "type": "holiday-adjacent",
+    "status": "pending",
+    "submitted": "2027-09-10"
+  },
+  {
+    "id": "R054",
+    "tech_id": "T12",
+    "start": "2027-12-24",
+    "end": "2027-12-29",
+    "type": "holiday-adjacent",
+    "status": "pending",
+    "submitted": "2027-08-27"
+  },
+  {
+    "id": "R100",
+    "tech_id": "T24",
+    "start": "2027-12-24",
+    "end": "2027-12-26",
+    "type": "holiday-adjacent",
+    "status": "pending",
+    "submitted": "2027-11-04"
+  },
+  {
+    "id": "R087",
+    "tech_id": "T21",
+    "start": "2027-12-25",
+    "end": "2027-12-27",
+    "type": "holiday-adjacent",
+    "status": "pending",
+    "submitted": "2027-09-16"
+  },
+  {
+    "id": "R055",
+    "tech_id": "T12",
+    "start": "2027-12-28",
+    "end": "2027-12-28",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-10-12"
+  },
+  {
+    "id": "R035",
+    "tech_id": "T08",
+    "start": "2027-12-30",
+    "end": "2027-12-30",
+    "type": "personal",
+    "status": "pending",
+    "submitted": "2027-09-17"
+  }
+]
